@@ -6,7 +6,7 @@ let categories = JSON.parse(fs.readFileSync("./categories.json"));
 const categoriesDir = fs.readdirSync("./dist");
 
 for (const category of categoriesDir) {
-  const categoryName = category.match(/^(.+)\.json/)[1];
+  const categoryName = category.match(/^(.+)\.json/)?.[1];
   if (!categoryName) continue;
   const data = fs.readFileSync(`./dist/${category}`);
   const jsonData = JSON.parse(data);
