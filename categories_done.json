@@ -1,0 +1,200 @@
+[
+  {
+    "id": "objects",
+    "prefix": "",
+    "path": "Data/Objects.json",
+    "defaultTexture": "Maps/springobjects",
+    "name": {
+      "": "Objects",
+      "pt-BR": "Objetos",
+      "ru-RU": "Объекты",
+      "ko-KR": "오브젝트",
+      "ja-JP": "オブジェクト",
+      "it-IT": "Oggetti",
+      "hu-HU": "Tárgyak",
+      "fr-FR": "Objets",
+      "es-ES": "Objetos",
+      "de-DE": "Objekte"
+    }
+  },
+  {
+    "id": "big-craftables",
+    "prefix": "(BC)",
+    "heightFactor": 2,
+    "path": "Data/BigCraftables.json",
+    "defaultTexture": "TileSheets/Craftables",
+    "name": {
+      "": "Big Craftables",
+      "pt-BR": "Artesanatos Grandes",
+      "ru-RU": "Большие ремесленные изделия",
+      "ko-KR": "큰 공예품",
+      "ja-JP": "大型クラフトアイテム",
+      "it-IT": "Oggetti Artigianali Grandi",
+      "hu-HU": "Nagy Kézműves Tárgyak",
+      "fr-FR": "Grands objets artisanaux",
+      "es-ES": "Artesanías Grandes",
+      "de-DE": "Große Handwerksobjekte"
+    }
+  },
+  {
+    "id": "tools",
+    "prefix": "(T)",
+    "path": "Data/Tools.json",
+    "defaultTexture": "TileSheets/tools",
+    "name": {
+      "": "Tools",
+      "pt-BR": "Ferramentas",
+      "ru-RU": "Инструменты",
+      "ko-KR": "도구",
+      "ja-JP": "道具",
+      "it-IT": "Strumenti",
+      "hu-HU": "Eszközök",
+      "fr-FR": "Outils",
+      "es-ES": "Herramientas",
+      "de-DE": "Werkzeuge"
+    }
+  },
+  {
+    "id": "furniture",
+    "prefix": "(F)",
+    "path": "Data/Furniture.json",
+    "defaultTexture": "TileSheets/furniture",
+    "itemFormat": "Name/TypeIndicator/TilesheetSize/BoundingBoxSize/Rotations/Price/PlacementRestriction/DisplayName/SpriteIndex/Texture",
+    "name": {
+      "": "Furniture",
+      "pt-BR": "Móveis",
+      "ru-RU": "Мебель",
+      "ko-KR": "가구",
+      "ja-JP": "家具",
+      "it-IT": "Mobili",
+      "hu-HU": "Bútorok",
+      "fr-FR": "Meubles",
+      "es-ES": "Muebles",
+      "de-DE": "Möbel"
+    },
+    "defaultSourceRect": {
+      "chair": "1 2",
+      "bench": "2 2",
+      "couch": "3 2",
+      "armchair": "2 2",
+      "dresser": "2 2",
+      "long table": "5 3",
+      "painting": "2 2",
+      "lamp": "1 3",
+      "decor": "1 2",
+      "bookcase": "2 3",
+      "table": "2 3",
+      "rug": "3 2",
+      "window": "1 2",
+      "fireplace": "2 5",
+      "torch": "1 2",
+      "sconce": "1 2",
+      "default": "1 2"
+    }
+  },
+  {
+    "id": "boots",
+    "prefix": "(B)",
+    "path": "Data/Boots.json",
+    "translateUsingDataId": 6,
+    "idAsSpriteId": true,
+    "defaultTexture": "Maps/springobjects",
+    "itemFormat": "Name/Description/Price/Defence/Immunity/Color/DisplayName",
+    "name": {
+      "": "Boots",
+      "pt-BR": "Botas",
+      "ru-RU": "Ботинки",
+      "ko-KR": "부츠",
+      "ja-JP": "ブーツ",
+      "it-IT": "Stivali",
+      "hu-HU": "Csizmák",
+      "fr-FR": "Bottes",
+      "es-ES": "Botas",
+      "de-DE": "Stiefel"
+    }
+  },
+  {
+    "id": "pants",
+    "prefix": "(P)",
+    "path": "Data/Pants.json",
+    "defaultTexture": "Characters/Farmer/pants",
+    "xOffset": 11,
+    "yOffset": 42,
+    "name": {
+      "": "Pants",
+      "pt-BR": "Calças",
+      "ru-RU": "Штаны",
+      "ko-KR": "바지",
+      "ja-JP": "ズボン",
+      "it-IT": "Pantaloni",
+      "hu-HU": "Nadrágok",
+      "fr-FR": "Pantalons",
+      "es-ES": "Pantalones",
+      "de-DE": "Hosen"
+    }
+  },
+  {
+    "id": "shirts",
+    "prefix": "(S)",
+    "path": "Data/Shirts.json",
+    "defaultTexture": "Characters/Farmer/shirts",
+    "spriteSize": 8,
+    "splitWidth": 2,
+    "subtractHeight": 24,
+    "heightFactor": 4,
+    "name": {
+      "": "Shirts",
+      "pt-BR": "Camisas",
+      "ru-RU": "Рубашки",
+      "ko-KR": "셔츠",
+      "ja-JP": "シャツ",
+      "it-IT": "Camicie",
+      "hu-HU": "Ing",
+      "fr-FR": "Chemises",
+      "es-ES": "Camisas",
+      "de-DE": "Hemden"
+    }
+  },
+  {
+    "id": "hats",
+    "prefix": "(H)",
+    "path": "Data/hats.json",
+    "translateUsingDataId": 5,
+    "spriteSize": 20,
+    "idAsSpriteId": true,
+    "defaultTexture": "Characters/Farmer/hats",
+    "itemFormat": "Name/Description/ShowHair/SkipOffset/Details/DisplayName/SpriteIndex/Texture",
+    "heightFactor": 4,
+    "subtractHeight": 60,
+    "name": {
+      "": "Hats",
+      "pt-BR": "Chapéus",
+      "ru-RU": "Шляпы",
+      "ko-KR": "모자",
+      "ja-JP": "帽子",
+      "it-IT": "Cappelli",
+      "hu-HU": "Sapkák",
+      "fr-FR": "Chapeaux",
+      "es-ES": "Sombreros",
+      "de-DE": "Hüte"
+    }
+  },
+  {
+    "id": "weapons",
+    "prefix": "(W)",
+    "path": "Data/Weapons.json",
+    "defaultTexture": "TileSheets/weapons",
+    "name": {
+      "": "Weapons",
+      "pt-BR": "Armas",
+      "ru-RU": "Оружие",
+      "ko-KR": "무기",
+      "ja-JP": "武器",
+      "it-IT": "Armi",
+      "hu-HU": "Fegyverek",
+      "fr-FR": "Armes",
+      "es-ES": "Armas",
+      "de-DE": "Waffen"
+    }
+  }
+]
