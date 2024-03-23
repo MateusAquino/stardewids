@@ -224,5 +224,25 @@
       "data-de-DE": "Krimskrams",
       "data-tr-TR": "Süs Eşyaları"
     }
+  },
+  {
+    "id": "mannequins",
+    "prefix": "(M)",
+    "path": "Data/Mannequins.json",
+    "defaultTexture": "TileSheets/Craftables",
+    "heightFactor": 2,
+    "names": {
+      "data-en-US": "Mannequins",
+      "data-pt-BR": "Manequins",
+      "data-ru-RU": "Манекены",
+      "data-ko-KR": "마네킹",
+      "data-ja-JP": "マネキン",
+      "data-it-IT": "Manichini",
+      "data-hu-HU": "Bábuk",
+      "data-fr-FR": "Mannequins",
+      "data-es-ES": "Maniquíes",
+      "data-de-DE": "Mannequins",
+      "data-tr-TR": "Mankenler"
+    }
   }
 ]

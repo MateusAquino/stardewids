@@ -18,7 +18,6 @@ for (const category of categoriesDir) {
       return cat;
     });
 }
-console.log(process.env.NODE_ENV);
 const staticStardewIds = pug.renderFile("./src/root.jade", {
   env: process.env.NODE_ENV,
   categories,
