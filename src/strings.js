@@ -79,27 +79,27 @@ const Strings = {
   },
   description1: {
     "en-US":
-      "Tool developed by <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> to help you find the IDs of items in Stardew Valley <b>updated for the 1.6 update</b>.",
+      "Tool developed by <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> to help you find the IDs of items in Stardew Valley <b>updated for the 1.6 update</b>.",
     "pt-BR":
-      "Ferramenta desenvolvida por <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> para ajudar você a encontrar os IDs dos itens em Stardew Valley <b>atualizada para a versão 1.6</b>.",
+      "Ferramenta desenvolvida por <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> para ajudar você a encontrar os IDs dos itens em Stardew Valley <b>atualizada para a versão 1.6</b>.",
     "ru-RU":
-      "Инструмент, разработанный <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a>, чтобы помочь вам найти идентификаторы предметов в Stardew Valley <b>обновлено для обновления 1.6</b>.",
+      "Инструмент, разработанный <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a>, чтобы помочь вам найти идентификаторы предметов в Stardew Valley <b>обновлено для обновления 1.6</b>.",
     "ko-KR":
-      "<a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a>가 개발한 도구로, 스타듀 밸리의 항목 ID를 찾는 데 도움이 됩니다 <b>1.6 업데이트에 대한 업데이트</b>.",
+      "<a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a>가 개발한 도구로, 스타듀 밸리의 항목 ID를 찾는 데 도움이 됩니다 <b>1.6 업데이트에 대한 업데이트</b>.",
     "ja-JP":
-      "<a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a>によって開発されたツールで、Stardew ValleyのアイテムのIDを見つけるのに役立ちます <b>1.6アップデート用に更新</b>.",
+      "<a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a>によって開発されたツールで、Stardew ValleyのアイテムのIDを見つけるのに役立ちます <b>1.6アップデート用に更新</b>.",
     "it-IT":
-      "Strumento sviluppato da <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> per aiutarti a trovare gli ID degli oggetti in Stardew Valley <b>aggiornato per l'aggiornamento 1.6</b>.",
+      "Strumento sviluppato da <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> per aiutarti a trovare gli ID degli oggetti in Stardew Valley <b>aggiornato per l'aggiornamento 1.6</b>.",
     "hu-HU":
-      "<a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> által kifejlesztett eszköz, amely segít megtalálni a Stardew Valley elemek azonosítóit <b>frissítve a 1.6 frissítéshez</b>.",
+      "<a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> által kifejlesztett eszköz, amely segít megtalálni a Stardew Valley elemek azonosítóit <b>frissítve a 1.6 frissítéshez</b>.",
     "fr-FR":
-      "Outil développé par <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> pour vous aider à trouver les identifiants des éléments dans Stardew Valley <b>mis à jour pour la mise à jour 1.6</b>.",
+      "Outil développé par <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> pour vous aider à trouver les identifiants des éléments dans Stardew Valley <b>mis à jour pour la mise à jour 1.6</b>.",
     "es-ES":
-      "Herramienta desarrollada por <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> para ayudarte a encontrar los IDs de los objetos en Stardew Valley <b>actualizado para la actualización 1.6</b>.",
+      "Herramienta desarrollada por <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> para ayudarte a encontrar los IDs de los objetos en Stardew Valley <b>actualizado para la actualización 1.6</b>.",
     "de-DE":
-      "Tool entwickelt von <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a>, um Ihnen zu helfen, die IDs von Gegenständen in Stardew Valley zu finden <b>aktualisiert für das 1.6-Update</b>.",
+      "Tool entwickelt von <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a>, um Ihnen zu helfen, die IDs von Gegenständen in Stardew Valley zu finden <b>aktualisiert für das 1.6-Update</b>.",
     "tr-TR":
-      "Stardew Valley'deki öğelerin kimliklerini bulmanıza yardımcı olmak için <a href='https://github.com/MateusAquino' target='_blank'>Mateus Aquino</a> tarafından geliştirilen araç <b>1.6 güncellemesi için güncellendi</b>.",
+      "Stardew Valley'deki öğelerin kimliklerini bulmanıza yardımcı olmak için <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> tarafından geliştirilen araç <b>1.6 güncellemesi için güncellendi</b>.",
   },
   spawn: {
     "en-US": "Spawning items",
