@@ -98,26 +98,30 @@ async function patchCategory(category, data) {
     if (!imageMetadataCache[imagePath])
       imageMetadataCache[imagePath] = await sharp(imagePath).metadata();
 
+    let bounding;
     const image = sharp(imagePath);
     const widthFactor =
       category?.typeFactors?.[type]?.[0] || category.widthFactor || 1;
     const heightFactor =
       category?.typeFactors?.[type]?.[1] || category.heightFactor || 1;
     const metadata = imageMetadataCache[imagePath];
+
+    const gapX = category.gapX ? category.gapX * spriteSize : 0;
+    const yOffset = category.yOffset ? category.yOffset * spriteSize : 0;
     const textureWidth = metadata.width / (category.splitWidth || 1);
-    const textureLength = textureWidth / spriteSize;
-    let bounding;
-    const offsetX = category.xOffset ? category.xOffset * spriteSize : 0;
-    const offsetY = category.yOffset ? category.yOffset * spriteSize : 0;
+    const textureLength = textureWidth / (gapX + spriteSize);
 
     if (!sFw) {
       const spriteX = spriteIndex % textureLength;
-      const spriteY = Math.floor((spriteIndex * spriteSize) / textureWidth);
+      const spriteY = Math.floor(
+        (spriteIndex * (spriteSize + gapX)) / textureWidth
+      );
+      const gapOffsetX = spriteX * gapX;
+      const gapOffsetY = spriteY * yOffset;
+
       bounding = {
-        left:
-          spriteSize * spriteX * widthFactor +
-          ((spriteIndex * offsetX) % textureLength),
-        top: spriteSize * spriteY * heightFactor + offsetY,
+        left: spriteSize * spriteX * widthFactor + gapOffsetX,
+        top: spriteSize * spriteY * heightFactor + gapOffsetY + yOffset,
         width: spriteSize * widthFactor,
         height: spriteSize * heightFactor - (category.subtractHeight || 0),
       };

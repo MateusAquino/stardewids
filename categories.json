@@ -58,6 +58,25 @@
     }
   },
   {
+    "id": "weapons",
+    "prefix": "(W)",
+    "path": "Data/Weapons.json",
+    "defaultTexture": "TileSheets/weapons",
+    "names": {
+      "data-en-US": "Weapons",
+      "data-pt-BR": "Armas",
+      "data-ru-RU": "Оружие",
+      "data-ko-KR": "무기",
+      "data-ja-JP": "武器",
+      "data-it-IT": "Armi",
+      "data-hu-HU": "Fegyverek",
+      "data-fr-FR": "Armes",
+      "data-es-ES": "Armas",
+      "data-de-DE": "Waffen",
+      "data-tr-TR": "Silahlar"
+    }
+  },
+  {
     "id": "furniture",
     "prefix": "(F)",
     "path": "Data/Furniture.json",
@@ -123,7 +142,7 @@
     "prefix": "(P)",
     "path": "Data/Pants.json",
     "defaultTexture": "Characters/Farmer/pants",
-    "xOffset": 11,
+    "gapX": 11,
     "yOffset": 42,
     "names": {
       "data-en-US": "Pants",
@@ -185,25 +204,6 @@
       "data-es-ES": "Sombreros",
       "data-de-DE": "Hüte",
       "data-tr-TR": "Şapkalar"
-    }
-  },
-  {
-    "id": "weapons",
-    "prefix": "(W)",
-    "path": "Data/Weapons.json",
-    "defaultTexture": "TileSheets/weapons",
-    "names": {
-      "data-en-US": "Weapons",
-      "data-pt-BR": "Armas",
-      "data-ru-RU": "Оружие",
-      "data-ko-KR": "무기",
-      "data-ja-JP": "武器",
-      "data-it-IT": "Armi",
-      "data-hu-HU": "Fegyverek",
-      "data-fr-FR": "Armes",
-      "data-es-ES": "Armas",
-      "data-de-DE": "Waffen",
-      "data-tr-TR": "Silahlar"
     }
   }
 ]
