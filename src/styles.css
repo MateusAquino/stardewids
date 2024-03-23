@@ -41,9 +41,13 @@ header h1 img {
   margin: 0px calc(10vw - 20px);
 }
 
-.hidden {
+img.hidden {
   position: absolute;
   left: -999em;
+}
+
+tr.hidden {
+  display: none;
 }
 
 h2 {
