@@ -29,6 +29,7 @@ header h1 {
 }
 
 header h1 img {
+  image-rendering: pixelated;
   margin-bottom: -4px;
   margin-right: 10px;
 }
