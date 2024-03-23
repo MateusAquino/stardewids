@@ -205,5 +205,24 @@
       "data-de-DE": "Hüte",
       "data-tr-TR": "Şapkalar"
     }
+  },
+  {
+    "id": "trinkets",
+    "prefix": "(TR)",
+    "path": "Data/Trinkets.json",
+    "defaultTexture": "TileSheets/Objects_2",
+    "names": {
+      "data-en-US": "Trinkets",
+      "data-pt-BR": "Bugigangas",
+      "data-ru-RU": "Безделушки",
+      "data-ko-KR": "장신구",
+      "data-ja-JP": "小物",
+      "data-it-IT": "Gioielli",
+      "data-hu-HU": "Csecsebecsék",
+      "data-fr-FR": "Babioles",
+      "data-es-ES": "Baratijas",
+      "data-de-DE": "Krimskrams",
+      "data-tr-TR": "Süs Eşyaları"
+    }
   }
 ]

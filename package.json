@@ -6,7 +6,8 @@
   "main": "scripts/generateStatic.js",
   "scripts": {
     "update-item-list": "node scripts/patchItems.js",
-    "dev": "nodemon -e js,json,jade,css -i ./node_modules -i ./assets",
+    "dev": "NODE_ENV=development nodemon -e js,json,jade,css -i ./node_modules -i ./assets",
+    "build": "node scripts/generateStatic.js",
     "dev-items": "while true; do watch --chgexit -n 0.5 'echo $(sha256sum ./categories.json); echo $(sha256sum ./scripts/patchItems.js)'; npm run update-item-list; done"
   },
   "author": "",

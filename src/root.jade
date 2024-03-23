@@ -79,7 +79,10 @@ header
       |  to help you find the IDs of items in Stardew Valley
       b  updated for the 1.6 update
       | .
-    img.center(src='https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids.home&format=true&right_color=%2304AA6D' alt='Visitor count')
+    if env === 'development'
+      img(src='https://img.shields.io/badge/visitors-DEV-04AA6D' alt='Visitor count')
+    else
+      img.hidden(src='https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids.home&format=true&right_color=%2304AA6D' alt='Visitor count')
   .dialog
     h2(data-translate="spawn") Spawning items
     div(data-translate="description2")

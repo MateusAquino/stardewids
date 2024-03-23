@@ -69,6 +69,7 @@ async function patchCategory(category, data) {
     const {
       Texture: texture,
       SpriteIndex: mainSpriteIndex,
+      SheetIndex: sheetSpriteIndex,
       MenuSpriteIndex: menuSpriteIndex,
       DisplayName: displayName,
       TilesheetSize: tilesheetSize,
@@ -79,6 +80,7 @@ async function patchCategory(category, data) {
     if (typeIndex[typeTextureId] === undefined) typeIndex[typeTextureId] = 0;
     const index = typeIndex[typeTextureId];
     let spriteIndex = menuSpriteIndex > 0 ? menuSpriteIndex : mainSpriteIndex;
+    spriteIndex = sheetSpriteIndex > 0 ? sheetSpriteIndex : spriteIndex;
     if (spriteIndex === undefined && category.idAsSpriteId) {
       spriteIndex = Number(id);
     } else if (spriteIndex === undefined) {

@@ -41,8 +41,9 @@ header h1 img {
   margin: 0px calc(10vw - 20px);
 }
 
-.center {
-  align-self: center;
+.hidden {
+  position: absolute;
+  left: -999em;
 }
 
 h2 {
