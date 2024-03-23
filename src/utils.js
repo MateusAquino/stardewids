@@ -34,6 +34,11 @@ function translateTo(language) {
     const element = document.querySelector(`[data-translate="${key}"]`);
     if (element) element.innerHTML = value[language];
   });
+
+  Object.entries(Strings).forEach(([key, value]) => {
+    const element = document.querySelector(`[data-translate-text="${key}"]`);
+    if (element) element.dataset.text = value[language];
+  });
 }
 
 function openCountrySelect() {
@@ -134,6 +139,35 @@ function clickBatch(event, id) {
   } catch (e) {
     animate(copyButton, "error");
   }
+}
+
+const filters = {};
+function toggleFilter(event, category, filter) {
+  const filterButton = event.currentTarget;
+  if (filters[category]?.[filter]) {
+    delete filters[category][filter];
+    filterButton.classList.remove("active");
+  } else {
+    if (!filters[category]) filters[category] = {};
+    filters[category][filter] = true;
+    filterButton.classList.add("active");
+  }
+  updateFilters(category);
+}
+
+function updateFilters(category) {
+  const rows = document.querySelectorAll(
+    `main div#${category} table tbody tr:not(:nth-of-type(1))`
+  );
+  const showAll =
+    filters[category] && Object.keys(filters[category]).length === 0;
+
+  rows.forEach((row) => {
+    if (showAll) return row.classList.remove("hidden");
+    if (filters[category]?.[row.dataset.type])
+      return row.classList.remove("hidden");
+    else return row.classList.add("hidden");
+  });
 }
 
 const codepoints = {
@@ -438,3 +472,8 @@ setTimeout(() => {
     if (button) button.click();
   }
 }, 1);
+
+Object.entries(Strings).forEach(([key, value]) => {
+  const element = document.querySelector(`[data-translate-text="${key}"]`);
+  if (element) element.dataset.text = value["en-US"];
+});

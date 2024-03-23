@@ -80,7 +80,7 @@ header
       b  updated for the 1.6 update
       | .
     if env === 'development'
-      img(src='https://img.shields.io/badge/visitors-DEV-04AA6D' alt='Visitor count')
+      img(src='https://img.shields.io/badge/env-development-04AA6D' alt='Visitor count')
     else
       img.hidden(src='https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids.home&format=true&right_color=%2304AA6D' alt='Visitor count')
   .dialog
@@ -117,13 +117,18 @@ header
 main
   each category in categories
     div(id=category.id class=category === categories[0] ? 'tabcontent active' : 'tabcontent')
+      if category.filters
+        .category-filters
+          each filter in Object.keys(category.filters)
+            .actionButton.filterButton(data-translate-text=`category-${filter}` onclick=`toggleFilter(event, "${category.id}", "${filter}")`)
+              img(src=`data:image/png;base64,${category.items[category.filters[filter]].image}` loading="lazy")
       table.items-table
         tr
           th(data-translate="image") Image
           th(data-translate="item") Item
           th(data-translate="actions") Actions
         each item in category.items
-          tr(id=`[${category.prefix}${item.id}]`)
+          tr(data-type=item.objectType id=`[${category.prefix}${item.id}]`)
             td
               img(src=`data:image/png;base64,${item.image}` loading="lazy")
             td

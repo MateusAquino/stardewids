@@ -96,6 +96,44 @@ a:hover {
   display: block;
 }
 
+/** Category selector **/
+
+.category-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 4px;
+  flex-wrap: wrap;
+}
+
+.category-filters .filterButton img {
+  width: 32px;
+  image-rendering: pixelated !important;
+}
+
+.category-filters .filterButton {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px !important;
+}
+
+.category-filters .filterButton.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.category-filters .filterButton:hover {
+  background-color: #ddd !important;
+}
+
+.category-filters .filterButton.active:hover {
+  background-color: #03a05c !important;
+}
+
 /** Table **/
 
 .items-table {

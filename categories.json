@@ -16,6 +16,19 @@
       "data-es-ES": "Objetos",
       "data-de-DE": "Objekte",
       "data-tr-TR": "Nesneler"
+    },
+    "filters": {
+      "Litter": 1,
+      "Basic": 9,
+      "Minerals": 35,
+      "Quest": 36,
+      "Crafting": 262,
+      "Arch": 73,
+      "Fish": 120,
+      "Cooking": 153,
+      "Seeds": 337,
+      "Ring": 603,
+      "asdf": 766
     }
   },
   {

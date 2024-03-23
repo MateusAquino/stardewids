@@ -75,6 +75,7 @@ async function patchCategory(category, data) {
       TilesheetSize: tilesheetSize,
       Rotations: rotations,
       TypeIndicator: type,
+      Type: objectType,
     } = item;
     const typeTextureId = `${type}_${texture}`;
     if (typeIndex[typeTextureId] === undefined) typeIndex[typeTextureId] = 0;
@@ -169,6 +170,7 @@ async function patchCategory(category, data) {
       const data = await instance.toBuffer();
       rows.push({
         id,
+        objectType,
         image: data.toString("base64"),
         names: languages.reduce((acc, lang) => {
           const dataCode = languageDataCodes[lang];
