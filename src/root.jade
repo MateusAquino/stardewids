@@ -1,79 +1,85 @@
 doctype html
 head
+  title Stardew Valley Vanilla IDs | Full Item List
+  meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1')
-  meta(name='keywords' content='stardewvalley,ids,items,list,1.6,update')
+  meta(name='keywords' content='stardewvalley,ids,items,list,1.6,update,cheat,cheatsheet')
   meta(name='description' content='Tool to help you find the IDs of items in Stardew Valley updated for the 1.6 update.')
   meta(name='author' content='Mateus Aquino')
   meta(name='robots' content='index, follow')
   meta(name='googlebot' content='index, follow')
-  meta(charset='utf-8')
-  title Stardew Valley Vanilla IDs | Full Item List
-  link(rel='icon' type="image/x-icon" href='favicon.ico')
+  link(rel='apple-touch-icon' sizes='180x180' href='favicon/apple-touch-icon.png')
+  link(rel='icon' type='image/png' sizes='32x32' href='favicon/favicon-32x32.png')
+  link(rel='icon' type='image/png' sizes='16x16' href='favicon/favicon-16x16.png')
+  link(rel='manifest' href='favicon/site.webmanifest')
 
   style 
     include:clean-css ./styles.css
 header
-  h1 Stardew Valley Vanilla IDs
+  h1
+    img(src='icon.svg' alt='Stardew Valley Vanilla IDs' width='32' height='32')
+    | Stardew Valley Vanilla IDs
+  .header-right
+    .country-wrapper
+      dt#country-selected(onclick="openCountrySelect()")
+        div.country-item
+          span.flag(style='background-position:0px -44px')
+          span.country English (en-US)
+      dd#country-select
+        ul
+          li#select-en-US(onclick="selectCountry(event, 'en-US')")
+            div.country-item 
+              span.flag(style='background-position:0px -44px')
+              span.country English (en-US)
+          li#select-pt-BR(onclick="selectCountry(event, 'pt-BR')")
+            div.country-item 
+              span.flag(style='background-position:0px -770px')
+              span.country Português (pt-BR)
+          li#select-tr-TR(onclick="selectCountry(event, 'tr-TR')")
+            div.country-item 
+              span.flag(style='background-position:0px -1606px')
+              span.country Türkçe (tr-TR)
+          li#select-ru-RU(onclick="selectCountry(event, 'ru-RU')")
+            div.country-item 
+              span.flag(style='background-position:0px -660px')
+              span.country Русский (ru-RU)
+          li#select-ko-KR(onclick="selectCountry(event, 'ko-KR')")
+            div.country-item 
+              span.flag(style='background-position:0px -2245px')
+              span.country 한국어 (ko-KR)
+          li#select-ja-JP(onclick="selectCountry(event, 'ja-JP')")
+            div.country-item 
+              span.flag(style='background-position:0px -429px')
+              span.country 日本語 (ja-JP)
+          li#select-it-IT(onclick="selectCountry(event, 'it-IT')")
+            div.country-item 
+              span.flag(style='background-position:0px -143px')
+              span.country Italiano (it-IT)
+          li#select-hu-HU(onclick="selectCountry(event, 'hu-HU')")
+            div.country-item 
+              span.flag(style='background-position:0px -682px')
+              span.country Magyar (hu-HU)
+          li#select-fr-FR(onclick="selectCountry(event, 'fr-FR')")
+            div.country-item 
+              span.flag(style='background-position:0px -1012px')
+              span.country Français (fr-FR)
+          li#select-es-ES(onclick="selectCountry(event, 'es-ES')")
+            div.country-item 
+              span.flag(style='background-position:0px -1155px')
+              span.country Español (es-ES)
+          li#select-de-DE(onclick="selectCountry(event, 'de-DE')")
+            div.country-item 
+              span.flag(style='background-position:0px -2509px')
+              span.country Deutsch (de-DE)
+
   .dialog
     p(data-translate="description1")
       | Tool developed by 
-      a(href='https://github.com/MateusAquino', target='_blank') Mateus Aquino
+      a(href='https://github.com/MateusAquino/stardewids', target='_blank') Mateus Aquino
       |  to help you find the IDs of items in Stardew Valley
       b  updated for the 1.6 update
       | .
-    
-  .country-wrapper
-    dt#country-selected(onclick="openCountrySelect()")
-      div.country-item
-        span.flag(style='background-position:0px -44px')
-        span.country English (en-US)
-    dd#country-select
-      ul
-        li#select-en-US(onclick="selectCountry(event, 'en-US')")
-          div.country-item 
-            span.flag(style='background-position:0px -44px')
-            span.country English (en-US)
-        li#select-pt-BR(onclick="selectCountry(event, 'pt-BR')")
-          div.country-item 
-            span.flag(style='background-position:0px -770px')
-            span.country Português (pt-BR)
-        li#select-tr-TR(onclick="selectCountry(event, 'tr-TR')")
-          div.country-item 
-            span.flag(style='background-position:0px -1606px')
-            span.country Türkçe (tr-TR)
-        li#select-ru-RU(onclick="selectCountry(event, 'ru-RU')")
-          div.country-item 
-            span.flag(style='background-position:0px -660px')
-            span.country Русский (ru-RU)
-        li#select-ko-KR(onclick="selectCountry(event, 'ko-KR')")
-          div.country-item 
-            span.flag(style='background-position:0px -2245px')
-            span.country 한국어 (ko-KR)
-        li#select-ja-JP(onclick="selectCountry(event, 'ja-JP')")
-          div.country-item 
-            span.flag(style='background-position:0px -429px')
-            span.country 日本語 (ja-JP)
-        li#select-it-IT(onclick="selectCountry(event, 'it-IT')")
-          div.country-item 
-            span.flag(style='background-position:0px -143px')
-            span.country Italiano (it-IT)
-        li#select-hu-HU(onclick="selectCountry(event, 'hu-HU')")
-          div.country-item 
-            span.flag(style='background-position:0px -682px')
-            span.country Magyar (hu-HU)
-        li#select-fr-FR(onclick="selectCountry(event, 'fr-FR')")
-          div.country-item 
-            span.flag(style='background-position:0px -1012px')
-            span.country Français (fr-FR)
-        li#select-es-ES(onclick="selectCountry(event, 'es-ES')")
-          div.country-item 
-            span.flag(style='background-position:0px -1155px')
-            span.country Español (es-ES)
-        li#select-de-DE(onclick="selectCountry(event, 'de-DE')")
-          div.country-item 
-            span.flag(style='background-position:0px -2509px')
-            span.country Deutsch (de-DE)
-
+    img.center(src='https://img.shields.io/badge/visitors-19K-04aa6d' alt='Visitor count')
   .dialog
     h2(data-translate="spawn") Spawning items
     div(data-translate="description2")
@@ -105,26 +111,26 @@ header
   .tab
     each category in categories
       button.tablinks(onclick=`openTab(event, "${category.id}")`, class=category === categories[0] ? 'active' : '')&attributes(category.names)= category.names['data-en-US']
-
-each category in categories
-  div(id=category.id class=category === categories[0] ? 'tabcontent active' : 'tabcontent')
-    table.items-table
-      tr
-        th(data-translate="image") Image
-        th(data-translate="item") Item
-        th(data-translate="actions") Actions
-      each item in category.items
+main
+  each category in categories
+    div(id=category.id class=category === categories[0] ? 'tabcontent active' : 'tabcontent')
+      table.items-table
         tr
-          td
-            img(src=`data:image/png;base64,${item.image}` loading="lazy")
-          td
-            .item-name&attributes(item.names)= item.names['data-en-US']
-            .item-id= `[${category.prefix}${item.id}]`
-          td
-            .actionGroup
-              .actionButton.copy(data-text="Copy" onclick=`clickCopy(event,'[${category.prefix}${item.id}]')`)
-              .actionButton.copyN(data-text="Copy N" onclick=`clickCopyN(event,'[${category.prefix}${item.id}]')`)
-              .actionButton.batch(data-text="Append to clipboard" onclick=`clickBatch(event,'[${category.prefix}${item.id}]')`)
+          th(data-translate="image") Image
+          th(data-translate="item") Item
+          th(data-translate="actions") Actions
+        each item in category.items
+          tr(id=`[${category.prefix}${item.id}]`)
+            td
+              img(src=`data:image/png;base64,${item.image}` loading="lazy")
+            td
+              .item-name&attributes(item.names)= item.names['data-en-US']
+              .item-id= `[${category.prefix}${item.id}]`
+            td
+              .actionGroup
+                .actionButton.copy(data-text="Copy" onclick=`clickCopy(event,'[${category.prefix}${item.id}]')`)
+                .actionButton.copyN(data-text="Copy many" onclick=`clickCopyN(event,'[${category.prefix}${item.id}]')`)
+                .actionButton.batch(data-text="Batch copy" onclick=`clickBatch(event,'[${category.prefix}${item.id}]')`)
 
 script
       include:minify-js strings.js

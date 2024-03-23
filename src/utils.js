@@ -22,7 +22,7 @@ function translateTo(language) {
     });
 
     document.querySelectorAll(".actionButton.copyN").forEach((element) => {
-      element.dataset.text = Strings.copy[language] + " N";
+      element.dataset.text = Strings.copyN[language];
     });
 
     document.querySelectorAll(".actionButton.batch").forEach((element) => {
@@ -82,7 +82,10 @@ function clickCopy(event, id) {
 
   try {
     copyWithBypass(id);
-    batch = [id];
+    batch = [];
+    document
+      .querySelectorAll(".batched")
+      .forEach((element) => element.classList.remove("batched"));
     animate(copyButton, "success");
   } catch (e) {
     animate(copyButton, "error");
@@ -94,9 +97,16 @@ function clickCopyN(event, id) {
   if (copyButton.classList.contains("animating")) return;
 
   try {
-    var quantity = parseInt(prompt("Qtd:", 1));
+    let quantity = parseInt(prompt("Qtd (max. 999):", 1), 10);
+    if (isNaN(quantity)) throw new Error("Invalid quantity");
+    quantity = quantity > 999 ? 999 : quantity;
+    quantity = quantity < 1 ? 1 : quantity;
     const bypassId = splitId(id.repeat(quantity));
     prompt("Copy (CTRL + C):", bypassId);
+    batch = [];
+    document
+      .querySelectorAll(".batched")
+      .forEach((element) => element.classList.remove("batched"));
     animate(copyButton, "success");
   } catch (e) {
     animate(copyButton, "error");
@@ -108,9 +118,19 @@ function clickBatch(event, id) {
   const copyButton = event.currentTarget;
   if (copyButton.classList.contains("animating")) return;
   try {
-    batch.push(id);
-    copyWithBypass(batch.join(""));
-    animate(copyButton, "success");
+    const batchRow = document.getElementById(id);
+    if (batchRow.classList.contains("batched")) {
+      batchRow.classList.remove("batched");
+      batch = batch.filter((item) => item !== id);
+      copyWithBypass(batch.join(""));
+      animate(copyButton, "error");
+      return;
+    } else {
+      batch.push(id);
+      copyWithBypass(batch.join(""));
+      batchRow.classList.add("batched");
+      animate(copyButton, "success");
+    }
   } catch (e) {
     animate(copyButton, "error");
   }

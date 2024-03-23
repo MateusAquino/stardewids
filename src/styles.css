@@ -19,9 +19,18 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: fit-content;
   margin: 0;
   padding: 0;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header h1 img {
+  margin-bottom: -4px;
+  margin-right: 10px;
 }
 
 .dialog {
@@ -29,7 +38,10 @@ header {
   align-items: flex-start;
   flex-direction: column;
   margin: 0px calc(10vw - 20px);
-  margin-bottom: 20px;
+}
+
+.center {
+  align-self: center;
 }
 
 h2 {
@@ -51,6 +63,7 @@ a:hover {
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   width: 80vw;
+  margin-top: 20px;
 }
 
 .tab button {
@@ -120,6 +133,14 @@ a:hover {
   text-align: left;
 }
 
+.items-table tr.batched {
+  background-color: #bfb;
+}
+
+.items-table tr.batched:nth-child(even) {
+  background-color: #9e9;
+}
+
 .items-table tr td:first-child {
   text-align: center;
 }
@@ -147,7 +168,6 @@ a:hover {
 }
 
 .actionButton {
-  position: relative;
   width: 32px;
   height: 32px;
   background-size: 24px;
@@ -225,10 +245,45 @@ a:hover {
   border-radius: 5px;
   overflow: hidden;
   height: 40px;
+  min-height: 40px;
   width: 200px;
   max-width: 200px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-right {
+  position: absolute;
+  right: 10vw;
+  top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .header-right {
+    right: 40px;
+  }
+}
+
+@media (max-width: 970px) {
+  .country-wrapper {
+    width: 44px;
+    min-width: 44px;
+  }
+  .country-wrapper dt .country-item span.country {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .header-right {
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    top: auto;
+  }
+  .country-wrapper dd {
+    bottom: 100%;
+  }
 }
 
 .country-wrapper dt {
@@ -279,7 +334,7 @@ div.country-item span.flag {
   display: none;
   position: absolute;
   top: auto;
-  left: auto;
+  right: 0px;
   margin: 0;
   padding: 0;
   border: 0;
