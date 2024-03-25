@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img width="600" src="header.png" align="center"></img>
+    <img width="600" src="images/header.png" align="center"></img>
 </h1>
 <p align="center">🐣 Full Stardew Valley item list IDs (1.6+ update) & assets patcher.</p>
 

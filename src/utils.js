@@ -31,8 +31,8 @@ function translateTo(language) {
   }, 1);
 
   Object.entries(Strings).forEach(([key, value]) => {
-    const element = document.querySelector(`[data-translate="${key}"]`);
-    if (element) element.innerHTML = value[language];
+    const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+    elements.forEach((element) => (element.innerHTML = value[language]));
   });
 
   Object.entries(Strings).forEach(([key, value]) => {
@@ -101,21 +101,63 @@ function clickCopyN(event, id) {
   const copyButton = event.currentTarget;
   if (copyButton.classList.contains("animating")) return;
 
-  try {
-    let quantity = parseInt(prompt("Qtd (max. 999):", 1), 10);
-    if (isNaN(quantity)) throw new Error("Invalid quantity");
-    quantity = quantity > 999 ? 999 : quantity;
-    quantity = quantity < 1 ? 1 : quantity;
-    const bypassId = splitId(id.repeat(quantity));
-    prompt("Copy (CTRL + C):", bypassId);
-    batch = [];
-    document
-      .querySelectorAll(".batched")
-      .forEach((element) => element.classList.remove("batched"));
-    animate(copyButton, "success");
-  } catch (e) {
-    animate(copyButton, "error");
+  openQuantityModal(
+    (quantity) => {
+      if (isNaN(quantity) || quantity <= 0) throw new Error("Invalid quantity");
+      quantity = quantity > 999 ? 999 : quantity;
+      copyWithBypass(id.repeat(quantity));
+      batch = [];
+      document
+        .querySelectorAll(".batched")
+        .forEach((element) => element.classList.remove("batched"));
+      animate(copyButton, "success");
+    },
+    () => {
+      animate(copyButton, "error");
+    }
+  );
+}
+
+const modal = document.querySelector(".modal");
+const closeModal = document.querySelector(".close");
+closeModal.onclick = () => (modal.style.display = "none");
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
+};
+
+function openQuantityModal(onConfirm, onCancel) {
+  modal.style.display = "block";
+  const quantityInput = document.getElementById("copyNInput");
+  const cancelButton = document.getElementById("copyNCancel");
+  const confirmButton = document.getElementById("copyNConfirm");
+  quantityInput.value = "";
+  quantityInput.focus();
+
+  quantityInput.onkeydown = (event) => {
+    if (event.key !== "Enter") return;
+    modal.style.display = "none";
+    try {
+      onConfirm(quantityInput.value);
+    } catch (error) {
+      onCancel();
+    }
+  };
+
+  confirmButton.onclick = () => {
+    modal.style.display = "none";
+    try {
+      onConfirm(quantityInput.value);
+    } catch (error) {
+      onCancel();
+    }
+  };
+
+  cancelButton.onclick = () => {
+    modal.style.display = "none";
+    onCancel();
+  };
 }
 
 let batch = [];
@@ -141,17 +183,14 @@ function clickBatch(event, id) {
   }
 }
 
-const filters = {};
+const filters = { objects: "$All" };
 function toggleFilter(event, category, filter) {
   const filterButton = event.currentTarget;
-  if (filters[category]?.[filter]) {
-    delete filters[category][filter];
-    filterButton.classList.remove("active");
-  } else {
-    if (!filters[category]) filters[category] = {};
-    filters[category][filter] = true;
-    filterButton.classList.add("active");
-  }
+  document
+    .getElementById(`filter-${category}-${filters[category]}`)
+    .classList.remove("active");
+  filters[category] = filter;
+  filterButton.classList.add("active");
   updateFilters(category);
 }
 
@@ -159,12 +198,10 @@ function updateFilters(category) {
   const rows = document.querySelectorAll(
     `main div#${category} table tbody tr:not(:nth-of-type(1))`
   );
-  const showAll =
-    filters[category] && Object.keys(filters[category]).length === 0;
 
   rows.forEach((row) => {
-    if (showAll) return row.classList.remove("hidden");
-    if (filters[category]?.[row.dataset.type])
+    if (filters[category] === "$All") return row.classList.remove("hidden");
+    if (filters[category] === row.dataset.type)
       return row.classList.remove("hidden");
     else return row.classList.add("hidden");
   });
@@ -476,4 +513,9 @@ setTimeout(() => {
 Object.entries(Strings).forEach(([key, value]) => {
   const element = document.querySelector(`[data-translate-text="${key}"]`);
   if (element) element.dataset.text = value["en-US"];
+});
+
+document.getElementById("free-in").addEventListener("input", (event) => {
+  const content = event.target.value;
+  document.getElementById("free-out").innerText = splitId(content);
 });

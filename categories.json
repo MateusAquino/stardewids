@@ -18,6 +18,7 @@
       "data-tr-TR": "Nesneler"
     },
     "filters": {
+      "$All": 344,
       "Litter": 1,
       "Basic": 9,
       "Minerals": 35,
