@@ -52,6 +52,7 @@ function selectCountry(event, country) {
 
   document.getElementById("country-select").classList.remove("active");
   document.getElementById("country-selected").innerHTML = element.innerHTML;
+  document.cookie = `lang=${country}`;
   translateTo(country);
 }
 
@@ -502,13 +503,15 @@ function splitId(str, parsed = "") {
   }
 }
 
-setTimeout(() => {
-  if (window.location.hash) {
-    const language = window.location.hash.substring(1);
-    const button = document.getElementById("select-" + language);
-    if (button) button.click();
-  }
-}, 1);
+if (window.location.hash) {
+  const language = window.location.hash.substring(1);
+  const button = document.getElementById("select-" + language);
+  if (button) button.click();
+} else if (document.cookie.includes("lang")) {
+  const language = document.cookie.split("lang=")[1].split(";")[0];
+  const button = document.getElementById("select-" + language);
+  if (button) button.click();
+}
 
 Object.entries(Strings).forEach(([key, value]) => {
   const element = document.querySelector(`[data-translate-text="${key}"]`);
