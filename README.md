@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img width="600" src="images/header.png" align="center"></img>
+    <img width="600" src="public/images/header.png" align="center"></img>
 </h1>
 <p align="center">🐣 Full Stardew Valley item list IDs (1.6+ update) & assets patcher.</p>
 
@@ -16,7 +16,7 @@
 ## 🐓 Stardew Valley Vanilla IDs
 
 <p align="left">
-  <a target="_blank" href="https://mateusaquino.github.io/stardewids/"><img width="128px" alt="Logo" title="Logo" align="right" src="favicon/icon_128px.png"/></a>
+  <a target="_blank" href="https://mateusaquino.github.io/stardewids/"><img width="128px" alt="Logo" title="Logo" align="right" src="public/favicon/icon_128px.png"/></a>
 </p>
 
 This is a tool developed to help you find the IDs of items in Stardew Valley updated for the 1.6 update. It programmatically compiles all [unpacked assets](https://github.com/Pathoschild/StardewXnbHack) to generate a standardized item list separated by item type.

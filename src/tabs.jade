@@ -1,0 +1,36 @@
+each category in categories
+  div(id=category.id class=category === categories[0] ? 'tabcontent active' : 'tabcontent')
+    if category.filters
+      .category-filters
+        each filter in Object.keys(category.filters)
+          .action.filterButton(id=`filter-${category.id}-${filter}` data-translate-text=`category-${filter}` onclick=`toggleFilter(event, "${category.id}", "${filter}")` class=filter === Object.keys(category.filters)[0] ? 'active' : '')
+            img(src=`data:image/png;base64,${category.items[category.filters[filter]].image}` alt="Filter category" loading="lazy")
+    .scrollable
+      table.items-table
+        tr
+          th(data-translate="image") Image
+          th(data-translate="item") Item
+          th(data-translate="actions") Actions
+        each item in category.items
+          tr(data-type=item.objectType id=`[${category.prefix}${item.id}]`)
+            td
+              img(src=`data:image/png;base64,${item.image}` alt="Item" loading="lazy")
+            td
+              .item-name&attributes(item.names)= item.names['data-en-US']
+              .item-id= `[${category.prefix}${item.id}]`
+            td
+              .group
+                .action.copy(data-text="Copy" onclick=`clickCopy(event,'[${category.prefix}${item.id}]')`)
+                .action.copyN(data-text="Copy many" onclick=`clickCopyN(event,'[${category.prefix}${item.id}]')`)
+                .action.batch(data-text="Batch copy" onclick=`clickBatch(event,'[${category.prefix}${item.id}]')`)
+div#free.tabcontent.freetab
+  div(data-translate="free-description")
+    | This is an advanced section where you can freely type any content to be escaped into Marnie's dialogue box. This includes some 
+    a(href='https://stardewvalleywiki.com/Modding:Dialogue' rel="noopener" target='_blank') dialogue commands
+    |  and  
+    a(href='https://stardewvalleywiki.com/Modding:Trigger_actions' rel="noopener" target='_blank') trigger actions
+    | .
+  div.converter
+    textarea.textbox#free-in(data-translate="free-textarea" placeholder="Example:\n#$action AddMoney 100000")
+    .arrowR
+    .textbox#free-out(data-translate="free-textarea" readonly)

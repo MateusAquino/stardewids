@@ -1,3 +1,6 @@
+var finishLoading;
+const loadingPromise = new Promise((resolve) => (finishLoading = resolve));
+
 function openTab(evt, tabId) {
   const tabcontents = document.getElementsByClassName("tabcontent");
   const tablinks = document.getElementsByClassName("tablinks");
@@ -10,13 +13,23 @@ function openTab(evt, tabId) {
 }
 
 function translateTo(language) {
-  setTimeout(() => {
+  (async () => {
+    await loadingPromise;
+
     document.querySelectorAll("[data-en-US]").forEach((element) => {
       element.innerText = element.getAttribute(`data-${language}`);
     });
-  }, 1);
 
-  setTimeout(() => {
+    Object.entries(Strings).forEach(([key, value]) => {
+      const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+      elements.forEach((element) => (element.innerHTML = value[language]));
+    });
+
+    Object.entries(Strings).forEach(([key, value]) => {
+      const element = document.querySelector(`[data-translate-text="${key}"]`);
+      if (element) element.dataset.text = value[language];
+    });
+
     document.querySelectorAll(".actionButton.copy").forEach((element) => {
       element.dataset.text = Strings.copy[language];
     });
@@ -28,16 +41,15 @@ function translateTo(language) {
     document.querySelectorAll(".actionButton.batch").forEach((element) => {
       element.dataset.text = Strings.batch[language];
     });
-  }, 1);
+  })();
 
   Object.entries(Strings).forEach(([key, value]) => {
     const elements = document.querySelectorAll(`[data-translate="${key}"]`);
     elements.forEach((element) => (element.innerHTML = value[language]));
   });
 
-  Object.entries(Strings).forEach(([key, value]) => {
-    const element = document.querySelector(`[data-translate-text="${key}"]`);
-    if (element) element.dataset.text = value[language];
+  document.querySelectorAll("[data-en-US]").forEach((element) => {
+    element.innerText = element.getAttribute(`data-${language}`);
   });
 }
 
@@ -187,10 +199,21 @@ function clickBatch(event, id) {
 const filters = { objects: "$All" };
 function toggleFilter(event, category, filter) {
   const filterButton = event.currentTarget;
-  document
-    .getElementById(`filter-${category}-${filters[category]}`)
-    .classList.remove("active");
+  const lastFilter = document.getElementById(
+    `filter-${category}-${filters[category].replace("-", "")}`
+  );
+
+  if (filterButton.classList.contains("active") && filter !== "$All") {
+    filters[category] = `-${filter}`;
+    filterButton.classList.remove("active");
+    filterButton.classList.add("rejected");
+    return updateFilters(category);
+  }
+
+  lastFilter.classList.remove("active");
+  lastFilter.classList.remove("rejected");
   filters[category] = filter;
+  filterButton.classList.remove("rejected");
   filterButton.classList.add("active");
   updateFilters(category);
 }
@@ -202,7 +225,12 @@ function updateFilters(category) {
 
   rows.forEach((row) => {
     if (filters[category] === "$All") return row.classList.remove("hidden");
+
     if (filters[category] === row.dataset.type)
+      return row.classList.remove("hidden");
+    else if (filters[category] === `-${row.dataset.type}`)
+      return row.classList.add("hidden");
+    else if (filters[category].startsWith("-"))
       return row.classList.remove("hidden");
     else return row.classList.add("hidden");
   });
@@ -491,6 +519,8 @@ function calculateWidth(str) {
 }
 
 function splitId(str, parsed = "") {
+  const lines = str.split("\n");
+  if (lines.length > 1) return lines.map((line) => splitId(line)).join("\n");
   if (calculateWidth(str) <= limit) return parsed + str;
   for (let i = 0; i < str.length; i++) {
     const size = calculateWidth(str.substr(0, i));
@@ -518,7 +548,10 @@ Object.entries(Strings).forEach(([key, value]) => {
   if (element) element.dataset.text = value["en-US"];
 });
 
-document.getElementById("free-in").addEventListener("input", (event) => {
-  const content = event.target.value;
-  document.getElementById("free-out").innerText = splitId(content);
-});
+(async () => {
+  await loadingPromise;
+  document.getElementById("free-in").addEventListener("input", (event) => {
+    const content = event.target.value;
+    document.getElementById("free-out").innerText = splitId(content);
+  });
+})();

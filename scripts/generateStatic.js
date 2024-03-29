@@ -1,6 +1,7 @@
 import pug from "pug";
 import fs from "fs";
 import UglifyJS from "uglify-js";
+import CleanCSS from "clean-css";
 
 let categories = JSON.parse(fs.readFileSync("./categories.json"));
 const categoriesDir = fs.readdirSync("./dist");
@@ -18,16 +19,39 @@ for (const category of categoriesDir) {
       return cat;
     });
 }
-const staticStardewIds = pug.renderFile("./src/root.jade", {
+
+const minifySrc = (file) => {
+  const [filename, extension] = file.split(".");
+  const content = fs.readFileSync(`./src/${file}`, "utf8");
+  if (extension === "css") {
+    const cleanCSS = new CleanCSS({ compatibility: "ie9" });
+    const result = cleanCSS
+      .minify(content)
+      .styles.replaceAll("2nof", "2n of")
+      .replaceAll("2n+1of", "2n+1 of");
+    return fs.writeFileSync(`./public/${filename}.min.${extension}`, result);
+  } else if (extension === "js") {
+    const result = UglifyJS.minify(content).code;
+    return fs.writeFileSync(`./public/${filename}.min.${extension}`, result);
+  }
+};
+
+minifySrc("strings.js");
+minifySrc("utils.js");
+minifySrc("styles.css");
+
+const root = pug.renderFile("./src/root.jade", {
   env: process.env.NODE_ENV,
   categories,
-  filters: {
-    "minify-js": function (text, options) {
-      const result = UglifyJS.minify(text);
-      if (result.code) return result.code;
-      throw new Error(result.error);
-    },
-  },
 });
 
-fs.writeFileSync("./index.html", staticStardewIds);
+const tabs = pug.renderFile("./src/tabs.jade", {
+  env: process.env.NODE_ENV,
+  categories,
+});
+
+fs.writeFileSync(
+  "./public/itemlist.min.js",
+  `document.querySelector('main').innerHTML=\`${tabs}\`;finishLoading()`
+);
+fs.writeFileSync("./index.html", root);
