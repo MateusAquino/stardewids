@@ -30,15 +30,15 @@ function translateTo(language) {
       if (element) element.dataset.text = value[language];
     });
 
-    document.querySelectorAll(".actionButton.copy").forEach((element) => {
+    document.querySelectorAll(".action.copy").forEach((element) => {
       element.dataset.text = Strings.copy[language];
     });
 
-    document.querySelectorAll(".actionButton.copyN").forEach((element) => {
+    document.querySelectorAll(".action.copyN").forEach((element) => {
       element.dataset.text = Strings.copyN[language];
     });
 
-    document.querySelectorAll(".actionButton.batch").forEach((element) => {
+    document.querySelectorAll(".action.batch").forEach((element) => {
       element.dataset.text = Strings.batch[language];
     });
   })();
@@ -101,6 +101,7 @@ function clickCopy(event, id) {
   try {
     copyWithBypass(id);
     batch = [];
+    updateAmount();
     document
       .querySelectorAll(".batched")
       .forEach((element) => element.classList.remove("batched"));
@@ -115,20 +116,42 @@ function clickCopyN(event, id) {
   if (copyButton.classList.contains("animating")) return;
 
   openQuantityModal(
-    (quantity) => {
+    (quantity, batched) => {
+      quantity = Number(quantity);
       if (isNaN(quantity) || quantity <= 0) throw new Error("Invalid quantity");
       quantity = quantity > 999 ? 999 : quantity;
-      copyWithBypass(id.repeat(quantity));
-      batch = [];
-      document
-        .querySelectorAll(".batched")
-        .forEach((element) => element.classList.remove("batched"));
+      if (batched) {
+        batch = batch
+          .filter((item) => item !== id)
+          .concat(Array(quantity).fill(id));
+        copyWithBypass(batch.join(""));
+        document.getElementById(id).classList.add("batched");
+        updateAmount(id, quantity);
+      } else {
+        copyWithBypass(id.repeat(quantity));
+        batch = [];
+        updateAmount();
+        document
+          .querySelectorAll(".batched")
+          .forEach((element) => element.classList.remove("batched"));
+      }
       animate(copyButton, "success");
     },
     () => {
       animate(copyButton, "error");
     }
   );
+}
+
+function updateAmount(id, quantity) {
+  if (!id)
+    return document
+      .querySelectorAll("[data-amount]")
+      .forEach((element) => element.removeAttribute("data-amount"));
+  const row = document.getElementById(id);
+  const copyN = row.querySelector(".group");
+  if (quantity) copyN.dataset.amount = quantity;
+  else copyN.removeAttribute("data-amount");
 }
 
 const modal = document.querySelector(".modal");
@@ -143,6 +166,7 @@ window.onclick = (event) => {
 function openQuantityModal(onConfirm, onCancel) {
   modal.style.display = "block";
   const quantityInput = document.getElementById("copyNInput");
+  const batchButton = document.getElementById("copyNBatch");
   const cancelButton = document.getElementById("copyNCancel");
   const confirmButton = document.getElementById("copyNConfirm");
   quantityInput.value = "";
@@ -167,6 +191,15 @@ function openQuantityModal(onConfirm, onCancel) {
     }
   };
 
+  batchButton.onclick = () => {
+    modal.style.display = "none";
+    try {
+      onConfirm(quantityInput.value, true);
+    } catch (error) {
+      onCancel();
+    }
+  };
+
   cancelButton.onclick = () => {
     modal.style.display = "none";
     onCancel();
@@ -184,9 +217,11 @@ function clickBatch(event, id) {
       batch = batch.filter((item) => item !== id);
       copyWithBypass(batch.join(""));
       animate(copyButton, "error");
+      updateAmount(id);
       return;
     } else {
       batch.push(id);
+      updateAmount(id);
       copyWithBypass(batch.join(""));
       batchRow.classList.add("batched");
       animate(copyButton, "success");

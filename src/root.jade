@@ -150,8 +150,9 @@ main
     p(data-translate="modal-description") Type the number of items you want to copy:
     input#copyNInput(type="number" min="1" max="999" value="" placeholder="1-999")
     .modal-buttons
-      button#copyNCancel(data-translate="cancel") Cancelar
-      button#copyNConfirm(data-translate="copy" onclick="clickCopyN(event, currentCopyId)") Copiar
+      button#copyNCancel(data-translate="cancel") Cancel
+      button#copyNBatch(data-translate="batch") Add to batch
+      button#copyNConfirm(data-translate="copy") Copy
 
 script(src='public/strings.min.js')
 script(src='public/utils.min.js')
