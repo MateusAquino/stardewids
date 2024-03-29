@@ -3,8 +3,8 @@ each category in categories
     if category.filters
       .category-filters
         each filter in Object.keys(category.filters)
-          .action.filterButton(id=`filter-${category.id}-${filter}` data-translate-text=`category-${filter}` onclick=`toggleFilter(event, "${category.id}", "${filter}")` class=filter === Object.keys(category.filters)[0] ? 'active' : '')
-            img(src=`data:image/png;base64,${category.items[category.filters[filter]].image}` alt="Filter category" loading="lazy")
+          .action.filterButton(id=`filter-${category.id}-${filter}` data-text=category.filters[filter][0] data-translate-text=`category-${filter}` onclick=`toggleFilter(event, "${category.id}", "${filter}")` class=filter === Object.keys(category.filters)[0] ? 'active' : '')
+            img(src=`data:image/png;base64,${category.items[category.filters[filter][1]].image}` alt="Filter category" loading="lazy")
     .scrollable
       table.items-table
         tr

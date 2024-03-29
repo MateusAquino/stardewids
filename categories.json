@@ -18,18 +18,18 @@
       "data-tr-TR": "Nesneler"
     },
     "filters": {
-      "$All": 344,
-      "Litter": 1,
-      "Basic": 9,
-      "Minerals": 35,
-      "Quest": 36,
-      "Crafting": 262,
-      "Arch": 73,
-      "Fish": 120,
-      "Cooking": 153,
-      "Seeds": 337,
-      "Ring": 603,
-      "asdf": 766
+      "$All": ["All", 344],
+      "Litter": ["Litter", 1],
+      "Basic": ["Basic", 9],
+      "Minerals": ["Minerals", 35],
+      "Quest": ["Quest", 36],
+      "Crafting": ["Crafting", 262],
+      "Arch": ["Arch", 73],
+      "Fish": ["Fish", 120],
+      "Cooking": ["Cooking", 153],
+      "Seeds": ["Seeds", 337],
+      "Ring": ["Ring", 603],
+      "asdf": ["Misc", 766]
     }
   },
   {
