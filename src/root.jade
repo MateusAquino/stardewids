@@ -25,7 +25,7 @@ head
   link(rel='icon' type='image/png' sizes='32x32' href='public/favicon/favicon-32x32.png')
   link(rel='icon' type='image/png' sizes='16x16' href='public/favicon/favicon-16x16.png')
   link(rel='manifest' href='public/favicon/site.webmanifest')
-  link(rel="stylesheet" href="public/styles.min.css")
+  link(rel="stylesheet" href="public/styles.min.css?")
   
 header
   h1
@@ -149,11 +149,45 @@ main
     span.close &times;
     p(data-translate="modal-description") Type the number of items you want to copy:
     input#copyNInput(type="number" min="1" max="999" value="" placeholder="1-999")
+    .modal-section(data-translate="pastemode") Paste as:
+    .modal-radio
+      input#copyNChickenMode(type="radio" name="mode" value="1" checked)
+      label(for="copyNChickenMode") 
+        img.pastemode(src='public/images/chicken.png' alt='Chicken') 
+        span(data-translate="chickenName") Chicken name
+    .modal-radio
+      input#copyNPlayerMode(type="radio" name="mode" value="2")
+      label(for="copyNPlayerMode") 
+        img.pastemode(src='public/images/player.png' alt='Player') 
+        span(data-translate="playerName") Player name
+        #playerInfo.action.info.readonly(data-text="Some item IDs may not fit in the player's name.")
+    #chickenOnly
+      .modal-section(data-translate="quality") Quality:
+      .modal-radio
+        input#copyNDefault(type="radio" name="quality" value="0" checked)
+        label(for="copyNDefault")
+          img(src='public/images/quality_default.png' alt='Default') 
+          span(data-translate="default") Default
+      .modal-radio
+        input#copyNSilver(type="radio" name="quality" value="1")
+        label(for="copyNSilver")
+          img(src='public/images/quality_silver.png' alt='Silver') 
+          span(data-translate="silver") Silver
+      .modal-radio
+        input#copyNGold(type="radio" name="quality" value="2")
+        label(for="copyNGold")
+          img(src='public/images/quality_gold.png' alt='Gold') 
+          span(data-translate="gold") Gold
+      .modal-radio
+        input#copyNIridium(type="radio" name="quality" value="3")
+        label(for="copyNIridium")
+          img(src='public/images/quality_iridium.png' alt='Iridium') 
+          span(data-translate="iridium") Iridium
     .modal-buttons
       button#copyNCancel(data-translate="cancel") Cancel
       button#copyNBatch(data-translate="batch") Add to batch
       button#copyNConfirm(data-translate="copy") Copy
 
-script(src='public/strings.min.js')
-script(src='public/utils.min.js')
+script(src='public/strings.min.js?')
+script(src='public/utils.min.js?')
 script(async src='public/itemlist.min.js')

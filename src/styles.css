@@ -129,12 +129,59 @@ a:hover {
   position: relative;
 }
 
+.modal-content p {
+  font-weight: 600;
+}
+
+.modal-section {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 .modal-content input {
   width: calc(100% - 40px);
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.modal-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal-radio input {
+  width: 30px;
+}
+
+.modal-radio label {
+  margin: 2px 0px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-radio label img {
+  margin-right: 10px;
+  transition: 0.3s;
+  width: 16px;
+  image-rendering: pixelated !important;
+}
+
+.modal-radio label img.pastemode {
+  filter: grayscale(1);
+  width: 32px;
+}
+
+.modal-radio label:hover img {
+  filter: grayscale(0);
+}
+
+input[type="radio"]:checked + label img {
+  filter: grayscale(0);
 }
 
 .modal-buttons {
@@ -507,6 +554,15 @@ button#copyNBatch {
   border-radius: 10px;
   background-color: #fff;
   transform: scale(1.1);
+}
+
+.action.readonly:hover {
+  transform: scale(1);
+}
+
+.action.info {
+  background-image: url('data:image/svg+xml,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48px" height="48px" viewBox="0,0,256,256"><g fill="currentColor" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"></path></g></g></svg>');
+  background-size: 20px;
 }
 
 .action.copy {

@@ -41,6 +41,9 @@ function translateTo(language) {
     document.querySelectorAll(".action.batch").forEach((element) => {
       element.dataset.text = Strings.batch[language];
     });
+
+    document.querySelector("#playerInfo").dataset.text =
+      Strings.playerInfo[language];
   })();
 
   Object.entries(Strings).forEach(([key, value]) => {
@@ -69,7 +72,11 @@ function selectCountry(event, country) {
 }
 
 function copyWithBypass(id) {
-  const bypassId = splitId(id);
+  id =
+    id instanceof Array
+      ? id.sort((a, b) => a.startsWith("#") - b.startsWith("#")).join("")
+      : id;
+  const bypassId = splitId(id, "", mode);
   navigator.clipboard.writeText(bypassId).then(
     () => {},
     (err) => {
@@ -111,24 +118,43 @@ function clickCopy(event, id) {
   }
 }
 
+function getIdForPasteMode(id, quantity) {
+  const quality = document.querySelector('input[name="quality"]:checked').value;
+
+  return mode === "chicken"
+    ? `#$action AddItem ${id.replace(/[\[\]]/g, "")} ${quantity} ${quality}`
+    : id;
+}
+
+function removeFromBatch(id) {
+  batch = batch.filter(
+    (item) =>
+      item !== id && !item.includes(`AddItem ${id.replace(/[\[\]]/g, "")}`)
+  );
+  return batch;
+}
+
 function clickCopyN(event, id) {
   const copyButton = event.currentTarget;
   if (copyButton.classList.contains("animating")) return;
 
   openQuantityModal(
+    id,
     (quantity, batched) => {
       quantity = Number(quantity);
       if (isNaN(quantity) || quantity <= 0) throw new Error("Invalid quantity");
       quantity = quantity > 999 ? 999 : quantity;
+      const originalQuantity = quantity;
+      const copyText = getIdForPasteMode(id, quantity);
+      if (mode === "chicken") quantity = 1;
+
       if (batched) {
-        batch = batch
-          .filter((item) => item !== id)
-          .concat(Array(quantity).fill(id));
-        copyWithBypass(batch.join(""));
+        batch = removeFromBatch(id).concat(Array(quantity).fill(copyText));
+        copyWithBypass(batch);
         document.getElementById(id).classList.add("batched");
-        updateAmount(id, quantity);
+        updateAmount(id, originalQuantity);
       } else {
-        copyWithBypass(id.repeat(quantity));
+        copyWithBypass(copyText.repeat(quantity));
         batch = [];
         updateAmount();
         document
@@ -163,13 +189,15 @@ window.onclick = (event) => {
   }
 };
 
-function openQuantityModal(onConfirm, onCancel) {
+function openQuantityModal(id, onConfirm, onCancel) {
   modal.style.display = "block";
+  const row = document.getElementById(id);
+  const initialAmount = row.querySelector(".group").dataset.amount || 1;
   const quantityInput = document.getElementById("copyNInput");
   const batchButton = document.getElementById("copyNBatch");
   const cancelButton = document.getElementById("copyNCancel");
   const confirmButton = document.getElementById("copyNConfirm");
-  quantityInput.value = "";
+  quantityInput.value = row.classList.contains("batched") ? initialAmount : "";
   quantityInput.focus();
 
   quantityInput.onkeydown = (event) => {
@@ -214,15 +242,15 @@ function clickBatch(event, id) {
     const batchRow = document.getElementById(id);
     if (batchRow.classList.contains("batched")) {
       batchRow.classList.remove("batched");
-      batch = batch.filter((item) => item !== id);
-      copyWithBypass(batch.join(""));
+      removeFromBatch(id);
+      copyWithBypass(batch);
       animate(copyButton, "error");
       updateAmount(id);
       return;
     } else {
       batch.push(id);
       updateAmount(id);
-      copyWithBypass(batch.join(""));
+      copyWithBypass(batch);
       batchRow.classList.add("batched");
       animate(copyButton, "success");
     }
@@ -553,9 +581,10 @@ function calculateWidth(str) {
   return totalWidth;
 }
 
-function splitId(str, parsed = "") {
+function splitId(str, parsed = "", mode = "chicken") {
   const lines = str.split("\n");
   if (lines.length > 1) return lines.map((line) => splitId(line)).join("\n");
+  if (mode === "player") return str.replaceAll("[", "\n[");
   if (calculateWidth(str) <= limit) return parsed + str;
   for (let i = 0; i < str.length; i++) {
     const size = calculateWidth(str.substr(0, i));
@@ -590,3 +619,14 @@ Object.entries(Strings).forEach(([key, value]) => {
     document.getElementById("free-out").innerText = splitId(content);
   });
 })();
+
+let mode = "chicken";
+document.getElementById("copyNChickenMode").addEventListener("click", () => {
+  mode = "chicken";
+  document.getElementById("chickenOnly").style.display = "block";
+});
+
+document.getElementById("copyNPlayerMode").addEventListener("click", () => {
+  mode = "player";
+  document.getElementById("chickenOnly").style.display = "none";
+});
