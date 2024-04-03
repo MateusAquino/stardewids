@@ -14,7 +14,7 @@ each category in categories
         each item in category.items
           tr(data-type=item.objectType id=`[${category.prefix}${item.id}]`)
             td
-              img(src=`data:image/png;base64,${item.image}` alt="Item" loading="lazy")
+              img.copyImg(src=`data:image/png;base64,${item.image}` alt="Item" loading="lazy")
             td
               .item-name&attributes(item.names)= item.names['data-en-US']
               .item-id= `[${category.prefix}${item.id}]`

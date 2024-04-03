@@ -620,6 +620,26 @@ Object.entries(Strings).forEach(([key, value]) => {
   });
 })();
 
+(async () => {
+  await loadingPromise;
+
+  Array.from(document.getElementsByClassName("copyImg")).forEach((element) => {
+    element.addEventListener("click", (event) => {
+      const img = event.target;
+      const canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      canvas.toBlob((blob) =>
+        navigator.clipboard.write([new ClipboardItem({ "image/png": blob })])
+      );
+      element.classList.add("copied");
+      setTimeout(() => element.classList.remove("copied"), 200);
+    });
+  });
+})();
+
 let mode = "chicken";
 document.getElementById("copyNChickenMode").addEventListener("click", () => {
   mode = "chicken";

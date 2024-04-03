@@ -489,6 +489,29 @@ button#copyNBatch {
   image-rendering: pixelated;
 }
 
+.copyImg {
+  cursor: pointer;
+  transition: filter 0.1s;
+}
+
+.copyImg:hover {
+  background-color: #00000010;
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 3px;
+  padding-bottom: 8px;
+  margin: -5px;
+  margin-top: -3px;
+  margin-bottom: -8px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.copyImg.copied {
+  filter: brightness(1.5);
+}
+
 .item-name {
   font-size: 16px;
   color: #333;
