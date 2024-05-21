@@ -258,5 +258,87 @@
       "data-de-DE": "Mannequins",
       "data-tr-TR": "Mankenler"
     }
+  },
+  {
+    "id": "flooring",
+    "prefix": "(FL)",
+    "path": "Data/AdditionalWallpaperFlooring.json",
+    "defaultTexture": "Maps/walls_and_floors",
+    "textures": [
+      {
+        "prefix": "",
+        "path": "Maps/walls_and_floors",
+        "crop": [0, 336, 256, 688]
+      },
+      { "prefix": "MoreFloors:", "path": "Maps/floors_2" }
+    ],
+    "fixedWidth": 32,
+    "fixedHeight": 32,
+    "fixedNames": {
+      "data-en-US": "Floor",
+      "data-pt-BR": "Piso",
+      "data-ru-RU": "Пол",
+      "data-ko-KR": "바닥재",
+      "data-ja-JP": "床",
+      "data-it-IT": "Pavimento",
+      "data-hu-HU": "Padló",
+      "data-fr-FR": "Sol",
+      "data-es-ES": "Suelo",
+      "data-de-DE": "Boden",
+      "data-tr-TR": "Zemin"
+    },
+    "names": {
+      "data-en-US": "Flooring",
+      "data-pt-BR": "Pisos",
+      "data-ru-RU": "Полы",
+      "data-ko-KR": "바닥재",
+      "data-ja-JP": "床",
+      "data-it-IT": "Pavimenti",
+      "data-hu-HU": "Padló",
+      "data-fr-FR": "Sols",
+      "data-es-ES": "Suelos",
+      "data-de-DE": "Böden",
+      "data-tr-TR": "Zeminler"
+    }
+  },
+  {
+    "id": "wallpaper",
+    "prefix": "(WP)",
+    "textures": [
+      {
+        "prefix": "",
+        "path": "Maps/walls_and_floors",
+        "crop": [0, 0, 256, 336]
+      },
+      { "prefix": "MoreWalls:", "path": "Maps/wallpapers_2" }
+    ],
+    "fixedWidth": 16,
+    "fixedHeight": 48,
+    "fixedNames": {
+      "data-en-US": "Wallpaper",
+      "data-pt-BR": "Papel de Parede",
+      "data-ru-RU": "Обои",
+      "data-ko-KR": "벽지",
+      "data-ja-JP": "壁紙",
+      "data-it-IT": "Carta da Parati",
+      "data-hu-HU": "Tapéta",
+      "data-fr-FR": "Papiers Peints",
+      "data-es-ES": "Papel Pintado",
+      "data-de-DE": "Tapeten",
+      "data-tr-TR": "Duvar Kağıtları"
+    },
+    "names": {
+      "data-en-US": "Wallpapers",
+      "data-pt-BR": "Papéis de Parede",
+      "data-ru-RU": "Обои",
+      "data-ko-KR": "벽지",
+      "data-ja-JP": "壁紙",
+      "data-it-IT": "Carte da Parati",
+      "data-hu-HU": "Tapéták",
+      "data-fr-FR": "Papiers Peints",
+      "data-es-ES": "Papeles Pintados",
+      "data-de-DE": "Tapeten",
+      "data-tr-TR": "Duvar Kağıtları"
+    }
   }
 ]
