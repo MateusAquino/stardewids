@@ -63,6 +63,75 @@ async function patchCategory(category, data) {
   const typeIndex = {};
   const spriteSize = category.spriteSize || 16;
 
+  if (category.fixedNames) {
+    const fixedNames = category.fixedNames;
+    const fixedWidth = category.fixedWidth;
+    const fixedHeight = category.fixedHeight;
+
+    for (const categoryTexture of category.textures) {
+      const texturePath = categoryTexture.path;
+      const imagePath = safeURL(
+        `./assets/${texturePath.replace("\\", "/")}.png`
+      );
+      const texture = sharp(imagePath);
+      const rawTexture = sharp(imagePath).raw();
+      const metadata = await sharp(imagePath).metadata();
+
+      const textureCrop = categoryTexture.crop || [
+        0,
+        0,
+        metadata.width,
+        metadata.height,
+      ];
+
+      const width = textureCrop[2] - textureCrop[0];
+      const height = textureCrop[3] - textureCrop[1];
+
+      const image = texture.extract({
+        left: textureCrop[0],
+        top: textureCrop[1],
+        width,
+        height,
+      });
+      const rawImage = rawTexture.extract({
+        left: textureCrop[0],
+        top: textureCrop[1],
+        width,
+        height,
+      });
+
+      let id = 0;
+      while (true) {
+        const x = (id * fixedWidth) % width;
+        const y = Math.floor((id * fixedWidth) / width) * fixedHeight;
+        const bounding = {
+          left: x,
+          top: y,
+          width: fixedWidth,
+          height: fixedHeight,
+        };
+        if (y >= height) break;
+        const instance = image.extract(bounding);
+        const rawInstance = rawImage.extract(bounding);
+        const data = await instance.toBuffer();
+        const raw = await rawInstance.toBuffer();
+
+        if (raw.every((v) => v === 255) || raw.every((v) => v === 0)) {
+          id++;
+          continue;
+        }
+
+        rows.push({
+          id: categoryTexture.prefix + id++,
+          image: data.toString("base64"),
+          names: fixedNames,
+        });
+      }
+    }
+
+    return fs.writeFileSync(`./dist/${category.id}.json`, JSON.stringify(rows));
+  }
+
   for (let [id, item] of Object.entries(data)) {
     if (typeof item === "string")
       item = parseItemString(item, category.itemFormat);
@@ -196,13 +265,14 @@ async function patchCategory(category, data) {
   fs.writeFileSync(`./dist/${category.id}.json`, JSON.stringify(rows));
 }
 
-// farmhouse flooring ((FL)), wallpaper ((WP))).
 const categories = JSON.parse(fs.readFileSync("./categories.json"));
 
 categories.forEach((category) => {
-  const data = fs.readFileSync(`./assets/${category.path}`);
-  const jsonData = JSON.parse(data);
-  patchCategory(category, jsonData);
+  if (category.path) {
+    const data = fs.readFileSync(`./assets/${category.path}`);
+    const jsonData = JSON.parse(data);
+    patchCategory(category, jsonData);
+  } else patchCategory(category, {});
 });
 
 function safeURL(url) {

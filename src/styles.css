@@ -65,6 +65,9 @@ a:hover {
 
 /** Tab Selector **/
 .tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
@@ -80,7 +83,7 @@ a:hover {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .tab button:hover {
