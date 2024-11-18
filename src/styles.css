@@ -888,7 +888,7 @@ code {
   .items-table th:last-child {
     position: sticky;
     text-align: end;
-    padding-right: 26px;
+    padding-right: 20px;
     right: 0;
     width: 0px;
   }
@@ -896,6 +896,7 @@ code {
   .items-table td:last-child {
     position: sticky;
     right: 0;
+    display: flex;
   }
 
   .group {
