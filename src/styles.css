@@ -923,4 +923,13 @@ code {
   .scrollable {
     width: 95vw;
   }
+
+  .tab button {
+    padding: 10px 12px;
+  }
+
+  h1 {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
