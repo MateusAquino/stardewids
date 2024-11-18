@@ -623,6 +623,21 @@ Object.entries(Strings).forEach(([key, value]) => {
     const content = event.target.value;
     document.getElementById("free-out").innerText = splitId(content);
   });
+
+  if (debug) {
+    const batchButtons = document.querySelectorAll(".batch");
+    const modalButtons = document.querySelectorAll(
+      ":not(#chickenOnly) > .modal-radio"
+    );
+    batchButtons.forEach((element) => (element.style.display = "none"));
+    modalButtons.forEach((element) => (element.style.display = "none"));
+
+    batch = [];
+    updateAmount();
+    document
+      .querySelectorAll(".batched")
+      .forEach((element) => element.classList.remove("batched"));
+  }
 })();
 
 (async () => {
@@ -672,20 +687,18 @@ function setDebugMode(checked) {
     document.querySelector("[data-translate=description2]").style.display =
       "none";
 
-    setTimeout(() => {
-      const batchButtons = document.querySelectorAll(".batch");
-      const modalButtons = document.querySelectorAll(
-        ":not(#chickenOnly) > .modal-radio"
-      );
-      batchButtons.forEach((element) => (element.style.display = "none"));
-      modalButtons.forEach((element) => (element.style.display = "none"));
+    const batchButtons = document.querySelectorAll(".batch");
+    const modalButtons = document.querySelectorAll(
+      ":not(#chickenOnly) > .modal-radio"
+    );
+    batchButtons.forEach((element) => (element.style.display = "none"));
+    modalButtons.forEach((element) => (element.style.display = "none"));
 
-      batch = [];
-      updateAmount();
-      document
-        .querySelectorAll(".batched")
-        .forEach((element) => element.classList.remove("batched"));
-    }, 100);
+    batch = [];
+    updateAmount();
+    document
+      .querySelectorAll(".batched")
+      .forEach((element) => element.classList.remove("batched"));
     document.cookie = "debug=true";
     debug = true;
   } else {
@@ -702,14 +715,13 @@ function setDebugMode(checked) {
     document.querySelector("[data-translate=description2]").style.display =
       "block";
 
-    setTimeout(() => {
-      const batchButtons = document.querySelectorAll(".batch");
-      const modalButtons = document.querySelectorAll(
-        ":not(#chickenOnly) > .modal-radio"
-      );
-      batchButtons.forEach((element) => (element.style.display = "block"));
-      modalButtons.forEach((element) => (element.style.display = "flex"));
-    }, 100);
+    const batchButtons = document.querySelectorAll(".batch");
+    const modalButtons = document.querySelectorAll(
+      ":not(#chickenOnly) > .modal-radio"
+    );
+    batchButtons.forEach((element) => (element.style.display = "block"));
+    modalButtons.forEach((element) => (element.style.display = "flex"));
+
     document.cookie = "debug=false";
     debug = false;
   }
