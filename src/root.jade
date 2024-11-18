@@ -1,225 +1,234 @@
 doctype html
-head
-  title Stardew Valley Vanilla IDs | Full 1.6 Item List
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  meta(name='keywords' content='stardew valley, ids, id, item, items, codes, list, 1.6, update, updated, spawn, truque da galinha, stardew, stardewvalley, cheat, stardew ids, itens, códigos')
-  meta(name='description' content='Complete item cheatsheet guide to help you find all IDs of items in Stardew Valley, updated for 1.6. Quicky locate between objects, seeds, plants, furnitures, shirts, books and more!')
-  meta(property='og:url' content='https://mateusaquino.github.io/stardewids/')
-  meta(property='og:type' content='website')
-  meta(property='og:title' content='Stardew Valley Vanilla IDs | Full 1.6 Item List')
-  meta(property='og:description' content='Complete item cheatsheet guide to help you find all IDs of items in Stardew Valley, updated for 1.6. Quicky locate between objects, seeds, plants, furnitures, shirts, books and more!')
-  meta(property='og:image' content='https://mateusaquino.github.io/stardewids/public/images/banner.png')
-  meta(name='twitter:card' content='summary_large_image')
-  meta(property='twitter:domain' content='mateusaquino.github.io')
-  meta(property='twitter:url' content='https://mateusaquino.github.io/stardewids/')
-  meta(name='twitter:title' content='Stardew Valley Vanilla IDs | Full 1.6 Item List')
-  meta(name='twitter:description' content='Complete item cheatsheet guide to help you find all IDs of items in Stardew Valley, updated for 1.6. Quicky locate between objects, seeds, plants, furnitures, shirts, books and more!')
-  meta(name='twitter:image' content='https://mateusaquino.github.io/stardewids/public/images/banner.png')
-  meta(name='author' content='Mateus Aquino')
-  meta(name='robots' content='index, follow')
-  meta(name='googlebot' content='index, follow')
-  meta(name='google-site-verification' content='WKKqv2GKnrNzOE-D7Wtc6gO4fZbwVoHWjICTGIEYiqA')
-  link(rel='apple-touch-icon' sizes='180x180' href='public/favicon/apple-touch-icon.png')
-  link(rel='shortcut icon' type='image/png' sizes='48x48' href='public/favicon/favicon-48x48.png')
-  link(rel='icon' type='image/png' sizes='32x32' href='public/favicon/favicon-32x32.png')
-  link(rel='icon' type='image/png' sizes='16x16' href='public/favicon/favicon-16x16.png')
-  link(rel='manifest' href='public/favicon/site.webmanifest')
-  link(rel="stylesheet" href="public/styles.min.css?")
-  
-header
-  h1
-    img.hidden#imgDebug(src='public/images/debug.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
-    img#imgMain(src='public/images/icon.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
-    | Stardew Valley Vanilla IDs
-  .header-right
-    .country-wrapper
-      dt#country-selected(onclick="openCountrySelect()")
-        div.country-item
-          span.flag(style='background-position:0px -44px')
-          span.country English (en-US)
-      dd#country-select
-        ul
-          li#select-en-US(onclick="selectCountry(event, 'en-US')")
-            div.country-item 
-              span.flag(style='background-position:0px -44px')
-              span.country English (en-US)
-          li#select-pt-BR(onclick="selectCountry(event, 'pt-BR')")
-            div.country-item 
-              span.flag(style='background-position:0px -770px')
-              span.country Português (pt-BR)
-          li#select-tr-TR(onclick="selectCountry(event, 'tr-TR')")
-            div.country-item 
-              span.flag(style='background-position:0px -1606px')
-              span.country Türkçe (tr-TR)
-          li#select-ru-RU(onclick="selectCountry(event, 'ru-RU')")
-            div.country-item 
-              span.flag(style='background-position:0px -660px')
-              span.country Русский (ru-RU)
-          li#select-ko-KR(onclick="selectCountry(event, 'ko-KR')")
-            div.country-item 
-              span.flag(style='background-position:0px -2245px')
-              span.country 한국어 (ko-KR)
-          li#select-ja-JP(onclick="selectCountry(event, 'ja-JP')")
-            div.country-item 
-              span.flag(style='background-position:0px -429px')
-              span.country 日本語 (ja-JP)
-          li#select-it-IT(onclick="selectCountry(event, 'it-IT')")
-            div.country-item 
-              span.flag(style='background-position:0px -143px')
-              span.country Italiano (it-IT)
-          li#select-hu-HU(onclick="selectCountry(event, 'hu-HU')")
-            div.country-item 
-              span.flag(style='background-position:0px -682px')
-              span.country Magyar (hu-HU)
-          li#select-fr-FR(onclick="selectCountry(event, 'fr-FR')")
-            div.country-item 
-              span.flag(style='background-position:0px -1012px')
-              span.country Français (fr-FR)
-          li#select-es-ES(onclick="selectCountry(event, 'es-ES')")
-            div.country-item 
-              span.flag(style='background-position:0px -1155px')
-              span.country Español (es-ES)
-          li#select-de-DE(onclick="selectCountry(event, 'de-DE')")
-            div.country-item 
-              span.flag(style='background-position:0px -2509px')
-              span.country Deutsch (de-DE)
 
-  .dialog
-    p(data-translate="description1")
-      | Tool developed by 
-      a(href='https://github.com/MateusAquino/stardewids' rel="noopener" target='_blank') Mateus Aquino
-      |  to help you find the IDs of items in Stardew Valley
-      b  updated for the 1.6 update
-      | .
-    div(style="display: inline-flex;gap: 5px;align-items: flex-end;align-self: center")
-      label.switch
-        input#debugMode(type="checkbox")
-        span.slider
-      span(data-translate="chat-cheats" for="debugMode") Chat Cheats
-    if env === 'development'
-      img(src='https://img.shields.io/badge/env-development-04AA6D' alt='Visitor count')
-    else
-      img.hidden(src='https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids.home&format=true&right_color=%2304AA6D' alt='Visitor count')
-  .dialog
-    h2(data-translate="spawn") Spawning items
-    div(data-translate="description2debug" style="display: none")
-      | You can also spawn items using chat cheats. It's the 
-      b only option for mobile players
-      |  since breaking lines in Marnie doesn't work.
-      | To enable chat cheats in your save, please follow below instructions:
-      ol
-        li 
-          a(href='https://stardewvalleywiki.com/Saves#Find_your_save_files' rel="noopener" target='_blank') Locate your save file
-        li
-          a(href='https://stardewvalleywiki.com/Saves#Edit_a_save' rel="noopener" target='_blank') Edit the save file
-          |  (make a backup first)
-        li Find the 
-          code &lt;allowChatCheats&gt;
-          |  element and change its value to 
-          code true
-          #debugFileInfo.action.info.inline.readonly(data-text="If the option isn't available in your save file, ensure you have slept at least one day in version 1.6.9 or later.")
-        li Load the save normally
-      | With this mode enabled, you don't need to name your pets or change your name with item codes. Simply copy the command from the icon below and paste it into the chat, and the item will be spawned in your inventory. 
-      br
-      br
-      | There are 
-      a(href='https://stardewvalleywiki.com/Modding:Console_commands#Debug_commands' rel="noopener" target='_blank') many debug commands available
-      | , such as setting money, adjusting movement speed, warping to locations, and more.
-      br
-      br
-      b Warning: Use the item IDs below at your own risk. Doing so may affect your gaming experience.
-    div(data-translate="description2")
-      | You can spawn items by appending the item ID to your character's name and then talking to NPCs, or by 
-      b buying a pet from Marnie
-      |  appending the item ID to its name.
-      br
-      br
-      | During early game you can easily trigger character's name spawns by 
-      b  talking to Gus via phone
-      |  (or Pierre before 12:00) and after unlocking the cinema you can spam it by
-      b  inviting Jodi with a 
-        a(href='https://stardewvalleywiki.com/Jodi#Movies_&_Concessions' rel="noopener" target='_blank') Love Concession
-        |  to the movie theater
-      |  (fastest spawn rate).
-      br
-      br
-      | Be aware that certain item IDs 
-      b may exceed the pet's name character limit
-      | . In such instances, 
-      | you can use the copy button provided by this tool to bypass the limit.
-      |  It works by breaking lines to fit the codes into Marnie's text box width
-      |  and wrapping the line breaks using the new 
-      a(href='https://stardewvalleywiki.com/Modding:Migrate_to_Stardew_Valley_1.6#:~:text=Added%20new%20dialogue%20commands,male%20or%20female' rel="noopener" target="_blank") dialogue command
-      | .
-      br
-      br
-      b Warning: Use the item IDs below at your own risk. Doing so may affect your gaming experience.
+html(lang="en")
+  head
+    title Stardew Valley Vanilla IDs | Full 1.6 Item List
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='keywords' content='stardew valley, ids, id, item, items, codes, list, 1.6, update, updated, spawn, truque da galinha, stardew, stardewvalley, cheat, stardew ids, itens, códigos')
+    meta(name='description' content='Complete item cheatsheet guide to help you find all IDs of items in Stardew Valley, updated for 1.6. Quicky locate between objects, seeds, plants, furnitures, shirts, books and more!')
+    meta(property='og:url' content='https://mateusaquino.github.io/stardewids/')
+    meta(property='og:type' content='website')
+    meta(property='og:title' content='Stardew Valley Vanilla IDs | Full 1.6 Item List')
+    meta(property='og:description' content='Complete item cheatsheet guide to help you find all IDs of items in Stardew Valley, updated for 1.6. Quicky locate between objects, seeds, plants, furnitures, shirts, books and more!')
+    meta(property='og:image' content='https://mateusaquino.github.io/stardewids/public/images/banner.png')
+    meta(name='twitter:card' content='summary_large_image')
+    meta(property='twitter:domain' content='mateusaquino.github.io')
+    meta(property='twitter:url' content='https://mateusaquino.github.io/stardewids/')
+    meta(name='twitter:title' content='Stardew Valley Vanilla IDs | Full 1.6 Item List')
+    meta(name='twitter:description' content='Complete item cheatsheet guide to help you find all IDs of items in Stardew Valley, updated for 1.6. Quicky locate between objects, seeds, plants, furnitures, shirts, books and more!')
+    meta(name='twitter:image' content='https://mateusaquino.github.io/stardewids/public/images/banner.png')
+    meta(name='author' content='Mateus Aquino')
+    meta(name='robots' content='index, follow')
+    meta(name='googlebot' content='index, follow')
+    meta(name='google-site-verification' content='WKKqv2GKnrNzOE-D7Wtc6gO4fZbwVoHWjICTGIEYiqA')
+    link(rel='apple-touch-icon' sizes='180x180' href='public/favicon/apple-touch-icon.png')
+    link(rel='shortcut icon' type='image/png' sizes='48x48' href='public/favicon/favicon-48x48.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='public/favicon/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='public/favicon/favicon-16x16.png')
+    link(rel='manifest' href='public/favicon/site.webmanifest')
+    link(rel="stylesheet" href="public/styles.min.css?")
+    link(rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" as="style" onload="this.rel='stylesheet'")
+    noscript
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap")
 
-  .tab
-    each category in categories
-      button.tablinks(onclick=`openTab(event, "${category.id}")` class=category === categories[0] ? 'active' : '')&attributes(category.names)= category.names['data-en-US']
-    button.tablinks(onclick="openTab(event, 'free')" data-translate="free") Free
-main
-  .skeleton
-    .row.center
-      each val in Array(10)
-        .image
-    each val in Array(12)
-      .row
-        .image
-        .text
-          .line
-          .line.line-sm
-        .actions
+  header
+    h1
+      img.hidden#imgDebug(src='public/images/debug.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
+      img#imgMain(src='public/images/icon.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
+      | Stardew Valley Vanilla IDs
+    .header-right
+      dl.country-wrapper
+        dt#country-selected(onclick="openCountrySelect()")
+          div.country-item
+            span.flag(style='background-position:0px -44px')
+            span.country English (en-US)
+        dd#country-select
+          ul
+            li#select-en-US(onclick="selectCountry(event, 'en-US')")
+              div.country-item 
+                span.flag(style='background-position:0px -44px')
+                span.country English (en-US)
+            li#select-pt-BR(onclick="selectCountry(event, 'pt-BR')")
+              div.country-item 
+                span.flag(style='background-position:0px -770px')
+                span.country Português (pt-BR)
+            li#select-tr-TR(onclick="selectCountry(event, 'tr-TR')")
+              div.country-item 
+                span.flag(style='background-position:0px -1606px')
+                span.country Türkçe (tr-TR)
+            li#select-ru-RU(onclick="selectCountry(event, 'ru-RU')")
+              div.country-item 
+                span.flag(style='background-position:0px -660px')
+                span.country Русский (ru-RU)
+            li#select-ko-KR(onclick="selectCountry(event, 'ko-KR')")
+              div.country-item 
+                span.flag(style='background-position:0px -2245px')
+                span.country 한국어 (ko-KR)
+            li#select-ja-JP(onclick="selectCountry(event, 'ja-JP')")
+              div.country-item 
+                span.flag(style='background-position:0px -429px')
+                span.country 日本語 (ja-JP)
+            li#select-it-IT(onclick="selectCountry(event, 'it-IT')")
+              div.country-item 
+                span.flag(style='background-position:0px -143px')
+                span.country Italiano (it-IT)
+            li#select-hu-HU(onclick="selectCountry(event, 'hu-HU')")
+              div.country-item 
+                span.flag(style='background-position:0px -682px')
+                span.country Magyar (hu-HU)
+            li#select-fr-FR(onclick="selectCountry(event, 'fr-FR')")
+              div.country-item 
+                span.flag(style='background-position:0px -1012px')
+                span.country Français (fr-FR)
+            li#select-es-ES(onclick="selectCountry(event, 'es-ES')")
+              div.country-item 
+                span.flag(style='background-position:0px -1155px')
+                span.country Español (es-ES)
+            li#select-de-DE(onclick="selectCountry(event, 'de-DE')")
+              div.country-item 
+                span.flag(style='background-position:0px -2509px')
+                span.country Deutsch (de-DE)
+
+    .dialog
+      p(data-translate="description1")
+        | Tool developed by 
+        a(href='https://github.com/MateusAquino/stardewids' rel="noopener" target='_blank') Mateus Aquino
+        |  to help you find the IDs of items in Stardew Valley
+        b  updated for the 1.6 update
+        | .
+      div(style="display: inline-flex;gap: 5px;align-items: flex-end;align-self: center")
+        label.switch
+          input#debugMode(type="checkbox")
+          span.slider
+        span(data-translate="chat-cheats" for="debugMode") Chat Cheats
+      if env === 'development'
+        img(src='https://img.shields.io/badge/env-development-048657' alt='Visitor count')
+      else
+        img.hidden(src='https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids.home&format=true&right_color=%23048657' alt='Visitor count')
+    .dialog
+      h2(data-translate="spawn") Spawning items
+      div(data-translate="description2debug" style="display: none")
+        | You can also spawn items using chat cheats. It's the 
+        b only option for mobile players
+        |  since breaking lines in Marnie doesn't work.
+        | To enable chat cheats in your save, please follow below instructions:
+        ol
+          li 
+            a(href='https://stardewvalleywiki.com/Saves#Find_your_save_files' rel="noopener" target='_blank') Locate your save file
+          li
+            a(href='https://stardewvalleywiki.com/Saves#Edit_a_save' rel="noopener" target='_blank') Edit the save file
+            |  (make a backup first)
+          li Find the 
+            code &lt;allowChatCheats&gt;
+            |  element and change its value to 
+            code true
+            #debugFileInfo.action.info.inline.readonly(data-text="If the option isn't available in your save file, ensure you have slept at least one day in version 1.6.9 or later.")
+          li Load the save normally
+        | With this mode enabled, you don't need to rename your pets or change your name using item codes. Simply copy the command from the icon below and paste it into the chat. (
+        b
+          a(href="https://github.com/MateusAquino/stardewids/issues/1#issuecomment-2483640084" rel="noopener" target='_blank') Mobile players
+        | : tap the date in the top-right corner to open the chat) The item will then be spawned in your inventory.
+        br
+        br
+        | There are 
+        a(href='https://stardewvalleywiki.com/Modding:Console_commands#Debug_commands' rel="noopener" target='_blank') many debug commands available
+        | , such as setting money, adjusting movement speed, warping to locations, and more.
+        br
+        br
+        b Warning: Use the item IDs below at your own risk. Doing so may affect your gaming experience.
+      div(data-translate="description2")
+        | You can spawn items by appending the item ID to your character's name and then talking to NPCs, or by 
+        b buying a pet from Marnie
+        |  appending the item ID to its name.
+        br
+        br
+        | During early game you can easily trigger character's name spawns by 
+        b  talking to Gus via phone
+        |  (or Pierre before 12:00) and after unlocking the cinema you can spam it by
+        b  inviting Jodi with a 
+          a(href='https://stardewvalleywiki.com/Jodi#Movies_&_Concessions' rel="noopener" target='_blank') Love Concession
+          |  to the movie theater
+        |  (fastest spawn rate).
+        br
+        br
+        | Be aware that certain item IDs 
+        b may exceed the pet's name character limit
+        | . In such instances, 
+        | you can use the copy button provided by this tool to bypass the limit.
+        |  It works by breaking lines to fit the codes into Marnie's text box width
+        |  and wrapping the line breaks using the new 
+        a(href='https://stardewvalleywiki.com/Modding:Migrate_to_Stardew_Valley_1.6#:~:text=Added%20new%20dialogue%20commands,male%20or%20female' rel="noopener" target="_blank") dialogue command
+        | .
+        br
+        br
+        b Warning: Use the item IDs below at your own risk. Doing so may affect your gaming experience.
+
+    .tab
+      each category in categories
+        button.tablinks(onclick=`openTab(event, "${category.id}")` class=category === categories[0] ? 'active' : '')&attributes(category.names)= category.names['data-en-US']
+      button.tablinks(onclick="openTab(event, 'free')" data-translate="free") Free
+
+  main
+    .skeleton
+      .row.center
+        each val in Array(10)
           .image
+      each val in Array(12)
+        .row
           .image
-          .image
+          .text
+            .line
+            .line.line-sm
+          .actions
+            .image
+            .image
+            .image
 
-.modal
-  .modal-content
-    span.close &times;
-    p(data-translate="modal-description") Type the number of items you want to copy:
-    input#copyNInput(type="number" min="1" max="999" value="" placeholder="1-999")
-    .modal-section(data-translate="pastemode") Paste as:
-    .modal-radio
-      input#copyNChickenMode(type="radio" name="mode" value="1" checked)
-      label(for="copyNChickenMode") 
-        img.pastemode(src='public/images/chicken.png' alt='Chicken') 
-        span(data-translate="chickenName") Chicken name
-    .modal-radio
-      input#copyNPlayerMode(type="radio" name="mode" value="2")
-      label(for="copyNPlayerMode") 
-        img.pastemode(src='public/images/player.png' alt='Player') 
-        span(data-translate="playerName") Player name
-        #playerInfo.action.info.readonly(data-text="Some item IDs may not fit in the player's name.")
-    #chickenOnly
-      .modal-section(data-translate="quality") Quality:
+  .modal
+    .modal-content
+      span.close &times;
+      p(data-translate="modal-description") Type the number of items you want to copy:
+      input#copyNInput(type="number" min="1" max="999" value="" placeholder="1-999")
+      .modal-section(data-translate="pastemode") Paste as:
       .modal-radio
-        input#copyNDefault(type="radio" name="quality" value="0" checked)
-        label(for="copyNDefault")
-          img(src='public/images/quality_default.png' alt='Default') 
-          span(data-translate="default") Default
+        input#copyNChickenMode(type="radio" name="mode" value="1" checked)
+        label(for="copyNChickenMode") 
+          img.pastemode(src='public/images/chicken.png' alt='Chicken') 
+          span(data-translate="chickenName") Chicken name
       .modal-radio
-        input#copyNSilver(type="radio" name="quality" value="1")
-        label(for="copyNSilver")
-          img(src='public/images/quality_silver.png' alt='Silver') 
-          span(data-translate="silver") Silver
-      .modal-radio
-        input#copyNGold(type="radio" name="quality" value="2")
-        label(for="copyNGold")
-          img(src='public/images/quality_gold.png' alt='Gold') 
-          span(data-translate="gold") Gold
-      .modal-radio
-        input#copyNIridium(type="radio" name="quality" value="3")
-        label(for="copyNIridium")
-          img(src='public/images/quality_iridium.png' alt='Iridium') 
-          span(data-translate="iridium") Iridium
-    .modal-buttons
-      button#copyNCancel(data-translate="cancel") Cancel
-      button#copyNBatch(data-translate="batch") Add to batch
-      button#copyNConfirm(data-translate="copy") Copy
+        input#copyNPlayerMode(type="radio" name="mode" value="2")
+        label(for="copyNPlayerMode") 
+          img.pastemode(src='public/images/player.png' alt='Player') 
+          span(data-translate="playerName") Player name
+          #playerInfo.action.info.readonly(data-text="Some item IDs may not fit in the player's name.")
+      #chickenOnly
+        .modal-section(data-translate="quality") Quality:
+        .modal-radio
+          input#copyNDefault(type="radio" name="quality" value="0" checked)
+          label(for="copyNDefault")
+            img(src='public/images/quality_default.png' alt='Default') 
+            span(data-translate="default") Default
+        .modal-radio
+          input#copyNSilver(type="radio" name="quality" value="1")
+          label(for="copyNSilver")
+            img(src='public/images/quality_silver.png' alt='Silver') 
+            span(data-translate="silver") Silver
+        .modal-radio
+          input#copyNGold(type="radio" name="quality" value="2")
+          label(for="copyNGold")
+            img(src='public/images/quality_gold.png' alt='Gold') 
+            span(data-translate="gold") Gold
+        .modal-radio
+          input#copyNIridium(type="radio" name="quality" value="3")
+          label(for="copyNIridium")
+            img(src='public/images/quality_iridium.png' alt='Iridium') 
+            span(data-translate="iridium") Iridium
+      .modal-buttons
+        button#copyNCancel(data-translate="cancel") Cancel
+        button#copyNBatch(data-translate="batch") Add to batch
+        button#copyNConfirm(data-translate="copy") Copy
 
-script(src='public/strings.min.js?')
-script(src='public/utils.min.js?')
-script(async src='public/itemlist.min.js')
+  script(src='public/strings.min.js?')
+  script(src='public/utils.min.js?')
+  script(async defer src='public/itemlist.min.js')

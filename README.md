@@ -10,7 +10,7 @@
   <a aria-label="Pug version" href="https://github.com/pugjs/pug/releases/tag/pug%403.0.2">
     <img src="https://img.shields.io/badge/pug-3.0.2-success?logo=Pug"></img>
   </a>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids&format=true&right_color=%2304AA6D"></img>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids&format=true&right_color=%23048657"></img>
 </p>
 
 ## 🐓 Stardew Valley Vanilla IDs

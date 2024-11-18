@@ -57,6 +57,8 @@ function translateTo(language) {
   document.querySelectorAll("[data-en-US]").forEach((element) => {
     element.innerText = element.getAttribute(`data-${language}`);
   });
+
+  document.querySelector("html").setAttribute("lang", language);
 }
 
 function openCountrySelect() {
@@ -702,7 +704,7 @@ function setDebugMode(checked) {
     document.cookie = "debug=true";
     debug = true;
   } else {
-    document.documentElement.style.setProperty("--primary-color", "#04aa6d");
+    document.documentElement.style.setProperty("--primary-color", "#048657");
     document.getElementById("imgDebug").classList.add("hidden");
     document.getElementById("imgMain").classList.remove("hidden");
     document.getElementById("copyNBatch").style.display = "block";

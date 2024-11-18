@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
 /** General Styles **/
 
 :root {
-  --primary-color: #04aa6d;
+  --primary-color: #048657;
 }
 
 body {
@@ -301,7 +299,7 @@ button#copyNBatch {
 }
 
 .category-filters .filterButton.active {
-  background-color: #04aa6d;
+  background-color: #048657;
   color: white;
 }
 
@@ -850,6 +848,11 @@ code {
 .inline {
   display: inline-block;
   vertical-align: middle;
+}
+
+li {
+  height: 32px;
+  line-height: 32px;
 }
 
 @media (max-width: 650px) {
