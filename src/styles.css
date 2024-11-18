@@ -855,6 +855,12 @@ li {
   line-height: 32px;
 }
 
+@media (max-width: 863px) {
+  li {
+    height: unset;
+  }
+}
+
 @media (max-width: 650px) {
   .item-name {
     width: calc(100vw - 185px);
