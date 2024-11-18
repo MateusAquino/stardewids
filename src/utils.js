@@ -44,6 +44,9 @@ function translateTo(language) {
 
     document.querySelector("#playerInfo").dataset.text =
       Strings.playerInfo[language];
+
+    document.querySelector("#debugFileInfo").dataset.text =
+      Strings.debugFileInfo[language];
   })();
 
   Object.entries(Strings).forEach(([key, value]) => {
@@ -72,11 +75,12 @@ function selectCountry(event, country) {
 }
 
 function copyWithBypass(id) {
+  console.log(id);
   id =
     id instanceof Array
       ? id.sort((a, b) => a.startsWith("#") - b.startsWith("#")).join("")
       : id;
-  const bypassId = splitId(id, "", mode);
+  const bypassId = debug ? id : splitId(id, "", mode);
   navigator.clipboard.writeText(bypassId).then(
     () => {},
     (err) => {
@@ -106,7 +110,7 @@ function clickCopy(event, id) {
   if (copyButton.classList.contains("animating")) return;
 
   try {
-    copyWithBypass(id);
+    copyWithBypass(debug ? `/item ${id.replace(/[\[\]]/g, "")}` : id);
     batch = [];
     updateAmount();
     document
@@ -120,6 +124,7 @@ function clickCopy(event, id) {
 
 function getIdForPasteMode(id, quantity) {
   const quality = document.querySelector('input[name="quality"]:checked').value;
+  if (debug) return `/item ${id.replace(/[\[\]]/g, "")} ${quantity} ${quality}`;
 
   return mode === "chicken"
     ? `#$action AddItem ${id.replace(/[\[\]]/g, "")} ${quantity} ${quality}`
@@ -640,6 +645,7 @@ Object.entries(Strings).forEach(([key, value]) => {
   });
 })();
 
+let debug = false;
 let mode = "chicken";
 document.getElementById("copyNChickenMode").addEventListener("click", () => {
   mode = "chicken";
@@ -650,3 +656,71 @@ document.getElementById("copyNPlayerMode").addEventListener("click", () => {
   mode = "player";
   document.getElementById("chickenOnly").style.display = "none";
 });
+
+function setDebugMode(checked) {
+  if (checked) {
+    document.documentElement.style.setProperty("--primary-color", "#FF3333");
+    document.getElementById("imgDebug").classList.remove("hidden");
+    document.getElementById("imgMain").classList.add("hidden");
+    document.getElementById("copyNBatch").style.display = "none";
+    document.getElementById("copyNChickenMode").click();
+
+    document.querySelector("[data-translate=free]").style.display = "none";
+    document.querySelector("[data-translate=pastemode]").style.display = "none";
+    document.querySelector("[data-translate=description2debug]").style.display =
+      "block";
+    document.querySelector("[data-translate=description2]").style.display =
+      "none";
+
+    setTimeout(() => {
+      const batchButtons = document.querySelectorAll(".batch");
+      const modalButtons = document.querySelectorAll(
+        ":not(#chickenOnly) > .modal-radio"
+      );
+      batchButtons.forEach((element) => (element.style.display = "none"));
+      modalButtons.forEach((element) => (element.style.display = "none"));
+
+      batch = [];
+      updateAmount();
+      document
+        .querySelectorAll(".batched")
+        .forEach((element) => element.classList.remove("batched"));
+    }, 100);
+    document.cookie = "debug=true";
+    debug = true;
+  } else {
+    document.documentElement.style.setProperty("--primary-color", "#04aa6d");
+    document.getElementById("imgDebug").classList.add("hidden");
+    document.getElementById("imgMain").classList.remove("hidden");
+    document.getElementById("copyNBatch").style.display = "block";
+
+    document.querySelector("[data-translate=free]").style.display = "block";
+    document.querySelector("[data-translate=pastemode]").style.display =
+      "block";
+    document.querySelector("[data-translate=description2debug]").style.display =
+      "none";
+    document.querySelector("[data-translate=description2]").style.display =
+      "block";
+
+    setTimeout(() => {
+      const batchButtons = document.querySelectorAll(".batch");
+      const modalButtons = document.querySelectorAll(
+        ":not(#chickenOnly) > .modal-radio"
+      );
+      batchButtons.forEach((element) => (element.style.display = "block"));
+      modalButtons.forEach((element) => (element.style.display = "flex"));
+    }, 100);
+    document.cookie = "debug=false";
+    debug = false;
+  }
+}
+
+// toggle checkbox event
+document.getElementById("debugMode").addEventListener("change", (event) => {
+  setDebugMode(event.target.checked);
+});
+
+if (document.cookie.includes("debug=true")) {
+  document.getElementById("debugMode").checked = true;
+  setDebugMode(true);
+}

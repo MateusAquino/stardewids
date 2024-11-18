@@ -29,7 +29,8 @@ head
   
 header
   h1
-    img(src='public/images/icon.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
+    img.hidden#imgDebug(src='public/images/debug.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
+    img#imgMain(src='public/images/icon.png' alt='Stardew Valley Vanilla IDs Icon' width='32' height='32')
     | Stardew Valley Vanilla IDs
   .header-right
     .country-wrapper
@@ -91,12 +92,43 @@ header
       |  to help you find the IDs of items in Stardew Valley
       b  updated for the 1.6 update
       | .
+    div(style="display: inline-flex;gap: 5px;align-items: flex-end;align-self: center")
+      label.switch
+        input#debugMode(type="checkbox")
+        span.slider
+      span(data-translate="chat-cheats" for="debugMode") Chat Cheats
     if env === 'development'
       img(src='https://img.shields.io/badge/env-development-04AA6D' alt='Visitor count')
     else
       img.hidden(src='https://visitor-badge.laobi.icu/badge?page_id=mateusaquino.stardewids.home&format=true&right_color=%2304AA6D' alt='Visitor count')
   .dialog
     h2(data-translate="spawn") Spawning items
+    div(data-translate="description2debug" style="display: none")
+      | You can also spawn items using chat cheats. It's the 
+      b only option for mobile players
+      |  since breaking lines in Marnie doesn't work.
+      | To enable chat cheats in your save, please follow below instructions:
+      ol
+        li 
+          a(href='https://stardewvalleywiki.com/Saves#Find_your_save_files' rel="noopener" target='_blank') Locate your save file
+        li
+          a(href='https://stardewvalleywiki.com/Saves#Edit_a_save' rel="noopener" target='_blank') Edit the save file
+          |  (make a backup first)
+        li Find the 
+          code &lt;allowChatCheats&gt;
+          |  element and change its value to 
+          code true
+          #debugFileInfo.action.info.inline.readonly(data-text="If the option isn't available in your save file, ensure you have slept at least one day in version 1.6.9 or later.")
+        li Load the save normally
+      | With this mode enabled, you don't need to name your pets or change your name with item codes. Simply copy the command from the icon below and paste it into the chat, and the item will be spawned in your inventory. 
+      br
+      br
+      | There are 
+      a(href='https://stardewvalleywiki.com/Modding:Console_commands#Debug_commands' rel="noopener" target='_blank') many debug commands available
+      | , such as setting money, adjusting movement speed, warping to locations, and more.
+      br
+      br
+      b Warning: Use the item IDs below at your own risk. Doing so may affect your gaming experience.
     div(data-translate="description2")
       | You can spawn items by appending the item ID to your character's name and then talking to NPCs, or by 
       b buying a pet from Marnie

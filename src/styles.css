@@ -2,6 +2,10 @@
 
 /** General Styles **/
 
+:root {
+  --primary-color: #04aa6d;
+}
+
 body {
   display: flex;
   align-items: center;
@@ -56,7 +60,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #04aa6d;
+  color: var(--primary-color);
 }
 
 a:hover {
@@ -194,7 +198,7 @@ input[type="radio"]:checked + label img {
 }
 
 .modal-buttons button {
-  background-color: #04aa6d;
+  background-color: var(--primary-color);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -214,8 +218,8 @@ button#copyNCancel {
 
 button#copyNBatch {
   background-color: #fff;
-  color: #04aa6d;
-  border: 1px solid #04aa6d;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .close {
@@ -265,7 +269,7 @@ button#copyNBatch {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid #04aa6d;
+  border-left: 20px solid var(--primary-color);
   margin-top: -20px;
   align-self: center;
   position: relative;
@@ -297,7 +301,7 @@ button#copyNBatch {
 }
 
 .category-filters .filterButton.active {
-  background-color: #04aa6d;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -459,7 +463,7 @@ button#copyNBatch {
 .items-table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #04aa6d;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -565,6 +569,18 @@ button#copyNBatch {
   color: #fff;
   text-align: center;
   display: none;
+}
+
+.action.info:hover:before {
+  max-width: 300px;
+  white-space: break-spaces;
+  width: max-content;
+}
+
+@media (max-width: 692px) {
+  .action.info:before {
+    max-width: 200px !important;
+  }
 }
 
 .action.animating:before {
@@ -763,4 +779,74 @@ div.country-item span.flag {
 
 .country-wrapper dd ul li:hover {
   background-color: #f1f1f1;
+}
+
+.switch {
+  --secondary-container: #57272c;
+  --primary: #ff3333;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 1em;
+}
+
+.switch input {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #aeaaae;
+  transition: 0.2s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 0.6em;
+  width: 0.6em;
+  border-radius: 20px;
+  left: 0.2em;
+  bottom: 0.19em;
+  background-color: #313033;
+  transition: 0.4s;
+}
+
+input:checked + .slider::before {
+  background-color: var(--primary);
+}
+
+input:checked + .slider {
+  background-color: var(--secondary-container);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--secondary-container);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1em);
+}
+
+code {
+  color: #000;
+  background-color: #f8f9fa;
+  border: 1px solid #eaecf0;
+  border-radius: 2px;
+  padding: 1px 4px;
+}
+
+.inline {
+  display: inline-block;
+  vertical-align: middle;
 }
