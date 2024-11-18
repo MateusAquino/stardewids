@@ -658,6 +658,7 @@ button#copyNBatch {
   position: absolute;
   right: 10vw;
   top: 40px;
+  z-index: 100;
 }
 
 @media (max-width: 1200px) {
@@ -849,4 +850,77 @@ code {
 .inline {
   display: inline-block;
   vertical-align: middle;
+}
+
+@media (max-width: 650px) {
+  .item-name {
+    width: calc(100vw - 185px);
+    white-space: break-spaces;
+    font-size: 14px;
+  }
+
+  .item-id {
+    width: calc(100vw - 185px);
+    white-space: break-spaces;
+    font-size: 12px;
+  }
+
+  .action {
+    width: 22px;
+    height: 22px;
+    background-size: 22px;
+  }
+
+  .items-table {
+    width: unset;
+  }
+
+  .items-table tr td img {
+    width: 24px;
+  }
+
+  .items-table th:first-child {
+    width: 0px;
+    color: transparent;
+    padding: 0;
+  }
+
+  .items-table th:last-child {
+    position: sticky;
+    text-align: end;
+    padding-right: 26px;
+    right: 0;
+    width: 0px;
+  }
+
+  .items-table td:last-child {
+    position: sticky;
+    right: 0;
+  }
+
+  .group {
+    justify-content: flex-end;
+  }
+
+  .group[data-amount]:after {
+    width: fit-content;
+  }
+
+  .modal-buttons {
+    margin-top: 10px;
+  }
+
+  .modal-buttons button {
+    padding: 6px 10px;
+    font-size: 14px;
+    margin: 4px;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .scrollable {
+    width: 95vw;
+  }
 }
