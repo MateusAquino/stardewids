@@ -13,6 +13,7 @@ const languages = [
   ".fr-FR",
   ".es-ES",
   ".de-DE",
+  ".zh-CN",
 ];
 
 const languageDataCodes = {
@@ -27,6 +28,7 @@ const languageDataCodes = {
   ".fr-FR": "data-fr-FR",
   ".es-ES": "data-es-ES",
   ".de-DE": "data-de-DE",
+  ".zh-CN": "data-zh-CN",
 };
 
 const textRegex = /^\[LocalizedText Strings\\(.*?):(.*?)]$/;
