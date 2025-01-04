@@ -131,7 +131,7 @@ async function patchCategory(category, data) {
       }
     }
 
-    return fs.writeFileSync(`./dist/${category.id}.json`, JSON.stringify(rows));
+    return fs.writeFileSync(`./dist/${category.id}.json`, JSON.stringify(rows, null, "\t"));
   }
 
   for (let [id, item] of Object.entries(data)) {
@@ -264,7 +264,7 @@ async function patchCategory(category, data) {
     }
   }
 
-  fs.writeFileSync(`./dist/${category.id}.json`, JSON.stringify(rows));
+  fs.writeFileSync(`./dist/${category.id}.json`, JSON.stringify(rows, null, "\t"));
 }
 
 const categories = JSON.parse(fs.readFileSync("./categories.json"));
