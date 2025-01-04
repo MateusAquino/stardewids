@@ -21,7 +21,7 @@
 	{
 		"id": "1",
 		"objectType": 0,
-		"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAb0lEQVR4nGNgIAMkJhb9h2EGcjTv37//f2/vNNINSETS/P79czDNMKqZSpoDoxP+q2rp/SfbZlUtvf8mNvZgQ8h2tqqW3n+QS0CYLD8juwRkCMmpTBXqAmSaaI3ompDDhCgDsCmGGUq0C4h2MhoAAMBZxAykrK5YAAAAAElFTkSuQmCC",
+		"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAcElEQVR4nGNgIAMkJhb9h2EGcjTv37//f2/vNNINSETS/P79czDNMKqZSgEWGJ3wX1VL7z/Zoa2qpfffxMYebAjZUaWqpfcf5BIQJiuekV0CMoTkVKYKdQEyTbRGdE3IYUKUAdgUwwwl2gVEOxkNAADAWcQMnBh9QwAAAABJRU5ErkJggg==",
 		"names": {
 			"data-en-US": "Silver Saber",
 			"data-tr-TR": "Gümüş Kılıç",
@@ -97,7 +97,7 @@
 	{
 		"id": "5",
 		"objectType": 0,
-		"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nGNgIBP09k77D8IM5IDExKL/798/J8+AxMSi//v37yfPgMRRzf+HiGZ3Pf3/fVkGpGt219P/D8KFfnZgA0BskjQXQjWCaJI0I/uXZJthBsAyB8ggEJskA2CA3OwJADRPqbf42VPnAAAAAElFTkSuQmCC",
+		"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nGNgIBP09k77D8IM5IDExKL/798/J8+AxMSi//v37yfPgMRRzf+HSIC56+n/78syIF2zu57+fxAu9LMDGwBik6S5EKoRRJOkGdm/JNsMMwCWOUAGgdgkGQAD5GZPADRPqbfw5r7FAAAAAElFTkSuQmCC",
 		"names": {
 			"data-en-US": "Bone Sword",
 			"data-tr-TR": "Kemik Kılıç",
@@ -591,7 +591,7 @@
 	{
 		"id": "31",
 		"objectType": 2,
-		"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAATUlEQVR4nGNgIBEkJhb9B2FS9YEBSOP7988pN+A9OYYkJhb9379/P1wzSQYkommmyGaGUc2DUXMiNFFQbDMIU5TGe3unkW8AzBByDAAA0x2lOngNuTYAAAAASUVORK5CYII=",
+		"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAATUlEQVR4nGNgIBEkJhb9B2FS9YEBSOP7988pN+A9OYYkJhb9379/P1wzSQYkommmyGaGUc2DMcASoYmCYptBmKI03ts7jXwDYIaQYwAA0x2lOogfZM0AAAAASUVORK5CYII=",
 		"names": {
 			"data-en-US": "Femur",
 			"data-tr-TR": "Kemik",
@@ -1018,7 +1018,7 @@
 			"data-ko-KR": "황금 낫",
 			"data-ja-JP": "ゴールデン鎌",
 			"data-it-IT": "Falce d'oro",
-			"data-hu-HU": "Arany kasza",
+			"data-hu-HU": "Aranykasza",
 			"data-fr-FR": "Faux d’or",
 			"data-es-ES": "Guadaña dorada",
 			"data-de-DE": "Goldene Sense",
