@@ -152,7 +152,6 @@ const Strings = {
       "Stardew Valley'deki öğelerin kimliklerini bulmanıza yardımcı olmak için <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> tarafından geliştirilen araç <b>1.6 güncellemesi için güncellendi</b>.",
     "zh-CN":
       "该工具是 <a href='https://github.com/MateusAquino/stardewids' target='_blank'>Mateus Aquino</a> 开发的，方便您查找<b>星露谷物语 1.6 版本</b>的物品 ID 的工具。",
-
   },
   spawn: {
     "en-US": "Spawning items",
@@ -193,7 +192,6 @@ const Strings = {
       'Öğeleri karakterinizin adına öğe kimliğini ekleyerek ve ardından NPC\'lere konuşarak veya <b>Marnie\'den bir evcil hayvan satın alarak</b> öğe kimliğini adına ekleyerek oluşturabilirsiniz.<br><br>Oyunun başında, karakter adı spawnlarını <b>telefonla Gus ile konuşarak</b> (veya 12:00\'den önce Pierre ile) kolayca tetikleyebilir ve sinemayı açtıktan sonra <b>Jodi\'yi <a href="https://stardewvalleywiki.com/Jodi#Movies_&amp;_Concessions" target="_blank">Love Concession</a> ile sinemaya davet ederek spamlayabilirsiniz</b> (en hızlı spawn oranı).<br><br>Bazı öğe kimlikleri <b>evcil hayvanın adı karakter sınırını aşabilir</b>. Bu tür durumlarda, bu sınırı atlamak için bu araç tarafından sağlanan kopyalama düğmesini kullanabilirsiniz. Kodları Marnie\'nin metin kutusu genişliğine sığdırmak için satırları kırarak ve yeni <a href="https://stardewvalleywiki.com/Modding:Migrate_to_Stardew_Valley_1.6#:~:text=Added%20new%20dialogue%20commands,male%20or%20female" target="_blank">diyalog komutu</a> kullanarak satır sonlarını kaldırarak çalışır.<br><br><b>Uyarı: Aşağıdaki öğe kimliklerini kendi sorumluluğunuzda kullanın. Bu, oyun deneyiminizi etkileyebilir.',
     "zh-CN":
       '你可以通过在角色名称后附加物品 ID 并与 NPC 对话，或者<b>从玛妮那里购买宠物</b>并在其名字后附加物品 ID 来生成物品。<br><br>在游戏早期，你可以通过<b>使用电话与格斯对话</b>（或在12:00之前与皮埃尔对话）轻松触发角色名称生成，解锁电影院后，你可以通过<b>用<a href="https://zh.stardewvalleywiki.com/%E4%B9%94%E8%BF%AA#%E7%94%B5%E5%BD%B1%E5%92%8C%E9%9B%B6%E9%A3%9F%E5%96%9C%E5%A5%BD" target="_blank">最爱的食物</a>邀请乔迪到电影院</b>（生成速度最快）来刷物品。<br><br>请注意，某些物品 ID <b>可能会超过宠物名称的字符限制</b>。在这种情况下，你可以使用本工具提供的复制按钮来绕过限制。它的工作原理是通过换行来将代码适配到玛妮的文本框宽度，并使用新的<a href="https://stardewvalleywiki.com/Modding:Migrate_to_Stardew_Valley_1.6#:~:text=Added%20new%20dialogue%20commands,male%20or%20female" target="_blank">对话命令</a>移除换行符。<br><br><b>警告：使用下面的物品 ID 需要自担风险。这可能会影响你的游戏体验。',
-
   },
   description2debug: {
     "en-US":
@@ -220,21 +218,20 @@ const Strings = {
       'Ayrıca sohbet hileleri kullanarak öğeleri oluşturabilirsiniz. Marnie\'de satırları kırmak çalışmadığından bu, <b>mobil oyuncular için tek seçenektir</b>. Kaydınızda sohbet hilelerini etkinleştirmek için lütfen aşağıdaki talimatları izleyin:<ol><li> <a href="https://stardewvalleywiki.com/Saves#Find_your_save_files" rel="noopener" target="_blank">Kayıt dosyanızı bulun</a></li><li><a href="https://stardewvalleywiki.com/Saves#Edit_a_save" rel="noopener" target="_blank">Kayıt dosyasını düzenleyin</a> (önce bir yedek alın)</li><li><code>&lt;allowChatCheats&gt;</code> öğesini bulun ve değerini <code>true</code> olarak değiştirin<div class="action info inline readonly" id="debugFileInfo" data-text="Seçenek kayıt dosyanızda mevcut değilse, en azından 1.6.9 sürümünde bir gün uyuduğunuzdan emin olun."></div></li><li>Kaydı normal şekilde yükleyin</li></ol>Bu mod etkinleştirildiğinde, evcil hayvanlarınızın adını değiştirmenize veya öğe kodlarını kullanarak adınızı değiştirmenize gerek yoktur. Aşağıdaki simgeden komutu kopyalayıp sohbete yapıştırmanız yeterlidir. (<b><a href="https://github.com/MateusAquino/stardewids/issues/1#issuecomment-2483640084" rel="noopener" target="_blank">Mobil oyuncular</a></b>: sohbeti açmak için sağ üst köşedeki tarihe dokunun) Öğe daha sonra envanterinize oluşturulacaktır.<br><br>Para ayarlama, hareket hızını ayarlama, konumlara sıçrama ve daha fazlası gibi <a href="https://stardewvalleywiki.com/Modding:Console_commands#Debug_commands" rel="noopener" target="_blank">birçok hata ayıklama komutu</a> mevcuttur.<br><br><b>Uyarı: Aşağıdaki öğe kimliklerini kendi sorumluluğunuzda kullanın. Bu, oyun deneyiminizi etkileyebilir.</b>',
     "zh-CN":
       '你也可以使用聊天作弊码生成物品。对于移动端玩家来说，这是<b>唯一的选择</b>，因为在玛妮那里无法换行。要在你的存档中启用聊天作弊，请按以下说明操作：<ol><li><a href="https://stardewvalleywiki.com/Saves#Find_your_save_files" rel="noopener" target="_blank">找到你的存档文件</a></li><li><a href="https://stardewvalleywiki.com/Saves#Edit_a_save" rel="noopener" target="_blank">编辑存档文件</a>（请先备份）</li><li>找到 <code>&lt;allowChatCheats&gt;</code> 元素，并将其值更改为 <code>true</code><div class="action info inline readonly" id="debugFileInfo" data-text="如果在你的存档文件中找不到此选项，请确保在1.6.9或更高版本中已睡过至少一天。"></div></li><li>正常加载存档</li></ol>启用此模式后，你无需使用物品代码重命名宠物或更改名字。只需复制下方图标的命令并粘贴到聊天中。（<b><a href="https://github.com/MateusAquino/stardewids/issues/1#issuecomment-2483640084" rel="noopener" target="_blank">移动端玩家</a></b>：点击右上角的日期打开聊天）物品将随即生成在你的背包中。<br><br>还有<a href="https://stardewvalleywiki.com/Modding:Console_commands#Debug_commands" rel="noopener" target="_blank">许多调试命令可用</a>，例如设置金钱、调整移动速度、传送到指定位置等。<br><br><b>警告：使用以下物品ID需要自担风险。这可能会影响你的游戏体验。</b>',
-
   },
   free: {
-    "en-US": "Free",
-    "pt-BR": "Livre",
-    "ru-RU": "Свободный",
-    "ko-KR": "자유롭게",
-    "ja-JP": "無料",
-    "it-IT": "Libero",
-    "hu-HU": "Ingyenes",
-    "fr-FR": "Libre",
-    "es-ES": "Gratis",
-    "de-DE": "Frei",
-    "tr-TR": "Ücretsiz",
-    "zh-CN": "自定义",
+    "en-US": "More Tools",
+    "pt-BR": "Mais Ferramentas",
+    "ru-RU": "Дополнительные инструменты",
+    "ko-KR": "더 많은 도구",
+    "ja-JP": "その他のツール",
+    "it-IT": "Altri Strumenti",
+    "hu-HU": "További Eszközök",
+    "fr-FR": "Autres Outils",
+    "es-ES": "Más Herramientas",
+    "de-DE": "Weitere Tools",
+    "tr-TR": "Daha Fazla Araç",
+    "zh-CN": "更多工具",
   },
   cancel: {
     "en-US": "Cancel",
@@ -263,6 +260,20 @@ const Strings = {
     "de-DE": `Dies ist ein fortgeschrittener Abschnitt, in dem Sie beliebige Inhalte eingeben können, die in Marnies Dialogfeld entkommen sollen. Dies umfasst einige <a href="https://stardewvalleywiki.com/Modding:Dialogue" rel="noopener" target="_blank">Dialogbefehle</a> und <a href="https://stardewvalleywiki.com/Modding:Trigger_actions" rel="noopener" target="_blank">Triggeraktionen</a>.`,
     "tr-TR": `Bu, Marnie'nin diyalog kutusuna kaçırılacak herhangi bir içeriği serbestçe yazabileceğiniz gelişmiş bir bölümdür. Bu, bazı <a href="https://stardewvalleywiki.com/Modding:Dialogue" rel="noopener" target="_blank">diyalog komutları</a> ve <a href="https://stardewvalleywiki.com/Modding:Trigger_actions" rel="noopener" target="_blank">tetikleyici eylemleri</a> içerir.`,
     "zh-CN": `这是一个高级选项，您可以自由输入任何内容，这些内容将被转义到玛妮的对话框中。这包括一些<a href="https://stardewvalleywiki.com/Modding:Dialogue" rel="noopener" target="_blank">对话命令</a>和<a href="https://stardewvalleywiki.com/Modding:Trigger_actions" rel="noopener" target="_blank">触发动作</a>。`,
+  },
+  "free-description2": {
+    "en-US": `<span>You may also want to visit Stardew Dialogue Command Generator for additional tools, such as friendship and power commands using the <code>\${^^}$</code> replacement glitch:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "pt-BR": `<span>Você também pode visitar o Stardew Dialogue Command Generator para ferramentas adicionais, como comandos de amizade e poder usando o glitch de substituição <code>\${^^}$</code>:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "ru-RU": `<span>Вы также можете посетить Stardew Dialogue Command Generator для дополнительных инструментов, таких как команды дружбы и силы с использованием замены <code>\${^^}$</code>:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "ko-KR": `<span>추가 도구로 친구 및 파워 명령을 사용하는 스타듀 대화 명령 생성기를 방문할 수도 있습니다. 이는 <code>\${^^}$</code> 대체 버그를 사용합니다:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "ja-JP": `<span>友情やパワーコマンドを使用するための追加ツールである、<code>\${^^}$</code> 置換の不具合を使用した Stardew Dialogue Command Generator も訪れることができます:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "it-IT": `<span>Potresti anche voler visitare Stardew Dialogue Command Generator per strumenti aggiuntivi, come comandi di amicizia e potenza utilizzando il glitch di sostituzione <code>\${^^}$</code>:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "hu-HU": `<span>További eszközökért, például barátság és erő parancsokért látogasd meg a Stardew Dialogue Command Generator-t, amely a <code>\${^^}$</code> helyettesítési hiba használatával működik:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "fr-FR": `<span>Vous pouvez également visiter Stardew Dialogue Command Generator pour des outils supplémentaires, tels que des commandes d'amitié et de puissance utilisant le glitch de remplacement <code>\${^^}$</code>:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "es-ES": `<span>También puedes visitar Stardew Dialogue Command Generator para herramientas adicionales, como comandos de amistad y poder usando el glitch de reemplazo <code>\${^^}$</code>:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "de-DE": `<span>Sie können auch Stardew Dialogue Command Generator für zusätzliche Tools besuchen, wie Freundschafts- und Kraftbefehle mit dem <code>\${^^}$</code> Ersatz-Glitch:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "tr-TR": `<span>Ek araçlar için Stardew Dialogue Command Generator'ı ziyaret etmek isteyebilirsiniz, <code>\${^^}$</code> yerine koyma hatası kullanarak dostluk ve güç komutları:</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
+    "zh-CN": `<span>您还可以访问 Stardew Dialogue Command Generator 获取其他工具，例如使用 <code>\${^^}$</code> 替换故障的友谊和力量命令：</span><a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank"><img src="public/images/sdcg.png" alt="Item" loading="lazy"></a><span class="source">ref: <a href="https://bellabeababy.github.io/SDV-Dialogue-Glitch" target="_blank">https://bellabeababy.github.io/SDV-Dialogue-Glitch</a></span>`,
   },
   "modal-description": {
     "en-US": "Type the number of items you want to copy:",
@@ -572,5 +583,19 @@ const Strings = {
     "de-DE": "Chat-Cheats",
     "tr-TR": "Sohbet Hileleri",
     "zh-CN": "聊天作弊",
+  },
+  advanced: {
+    "en-US": "Advanced",
+    "pt-BR": "Avançado",
+    "ru-RU": "Дополнительно",
+    "ko-KR": "고급",
+    "ja-JP": "高度",
+    "it-IT": "Avanzato",
+    "hu-HU": "Haladó",
+    "fr-FR": "Avancé",
+    "es-ES": "Avanzado",
+    "de-DE": "Fortgeschritten",
+    "tr-TR": "Gelişmiş",
+    "zh-CN": "高级",
   },
 };

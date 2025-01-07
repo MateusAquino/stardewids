@@ -24,6 +24,18 @@ each category in categories
                 .action.copyN(data-text="Copy many" onclick=`clickCopyN(event,'[${category.prefix}${item.id}]')`)
                 .action.batch(data-text="Batch copy" onclick=`clickBatch(event,'[${category.prefix}${item.id}]')`)
 div#free.tabcontent.freetab
+  h2(data-translate="free") More Tools
+  div.refs(data-translate='free-description2')
+    span
+      | You may also want to visit Stardew Dialogue Command Generator for additional tools, such as friendship and power commands using the 
+      code \${^^}$
+      |  replacement glitch:
+    a(href='https://bellabeababy.github.io/SDV-Dialogue-Glitch' target='_blank')
+      img(src='public/images/sdcg.png' alt='Item' loading='lazy')
+    span.source
+      | ref: 
+      a(href='https://bellabeababy.github.io/SDV-Dialogue-Glitch' target='_blank') https://bellabeababy.github.io/SDV-Dialogue-Glitch
+  h2(data-translate="advanced") Advanced
   div(data-translate="free-description")
     | This is an advanced section where you can freely type any content to be escaped into Marnie's dialogue box. This includes some 
     a(href='https://stardewvalleywiki.com/Modding:Dialogue' rel="noopener" target='_blank') dialogue commands
